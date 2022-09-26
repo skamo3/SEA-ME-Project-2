@@ -1,36 +1,24 @@
-# Project XX: Project Title
+# Project 02: Digital Instrument Cluster
 
 
 # Description
-Short description of the project
-
-
-# Duration
-Duration in hours
+Now that you have prepared your learning object. It is time to examine its workings by extracting all the important information out of it. Driver needs to know very basic information in order to drive a car i.e. Speed, RPM, Motor temperature, Battery level and important tell-tale. So let’s design a driver’s information system which is called Digital Instrument Cluster.
 
 
 # Skills
-* Skill 1
-* Skill 2
-* Skill 3
-
-
-# Attachments
-* Attachment 1
-* Attachment 2
-
-
-# Forewords
-Interesting facts / stories to get people interested in this project.
-
-
-# Introduction
-Detail introduction of the project.
+* Arduino & RaspberryPi
+* Programming & Algorithms
+* CAN
+* Working with sensors
 
 
 # Objectives
-* Goal 1
-* Goal 2
+* Form a team of 2 peers
+* Display the motor RPM & Speed of the car on a screen.
+* Display the motor temperature of the car on a screen.
+* Display the battery level on a screen.
+* Implement PRND indicators.
+* Prepare “How-To” documentation
 
 
 # Common Instructions
@@ -46,15 +34,11 @@ Safety first! Electronics is a potentially dangerous hobby. Any circuit that wor
 * Have safety equipment such as a fire extinguisher, a first-aid kit, and a phone nearby.
 
 
-# Mandatory part
-* Mandatory 1
-* Mandatory 2
+# Requirements
+* Find out maximum motor RPM and speed of PiRacer.
+* Find out how long it lasts on a single charge.
 
 
 # Bonus part
-* Bonus 1
-* Bonus 2
+* Get PiRacer speed, RPM, temperature and battery levels data on a detached Digital Instrument Cluster unit. (Hint: Radio/Bluetooth/WiFi integration with Antenna)
 
-
-# Submission & Peer evaluation
-How to do peer evaluation
