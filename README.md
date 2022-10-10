@@ -112,4 +112,6 @@ SEA:ME 2nd Project
 
 ## Send & Receive Data
 
+- CAN 통신 라이브러리를 이용한 Arduino와 Raspberry-Pi의 통신
+
 ### [Send sensor data to Raspberry-Pi from Arduino](./SensorDataTransmitter/index.md)
