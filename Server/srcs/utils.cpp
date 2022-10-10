@@ -2,23 +2,23 @@
 
 int PrintErrorText(const char *errorText, int errorNo)
 {
-	printf("%s", COLOR_BRED);
-	printf("%s", errorText);
-	printf("%s\n", COLOR_RESET);
+	std::cout << COLOR_RED;
+	std::cout << errorText;
+	std::cout << COLOR_RESET << std::endl;
 	return errorNo;
 }
 
 int PrintErrorText(const char *errorText, int errorNo, int value)
 {
-	printf("%s", COLOR_BRED);
-	printf("%s : %d", errorText, value);
-	printf("%s\n", COLOR_RESET);
+	std::cout << COLOR_RED;
+	std::cout << errorText << " : " << value;
+	std::cout << COLOR_RESET << std::endl;
 	return errorNo;
 }
 
 void PrintSuccessText(const char *Text)
 {
-	printf("%s", COLOR_BGREEN);
-	printf("%s", Text);
-	printf("%s\n", COLOR_RESET);
+	std::cout << COLOR_RED;
+	std::cout << Text;
+	std::cout << COLOR_RESET << std::endl;
 }

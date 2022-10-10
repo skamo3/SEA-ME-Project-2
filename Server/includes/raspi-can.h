@@ -7,6 +7,6 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdint.h>
-#include <stdio.h>
+#include <iostream>
 
 # define CAN_FRAME_MAX_LEN 8
