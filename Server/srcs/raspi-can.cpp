@@ -1,5 +1,5 @@
-#include "../inc/raspi-can.h"
-#include "../inc/utils.h"
+#include "../includes/raspi-can.h"
+#include "../includes/utils.h"
 
 int InitSocket(const char *ifname)
 {
