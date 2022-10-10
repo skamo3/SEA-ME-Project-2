@@ -1,0 +1,4 @@
+[D-BUS Service]
+Exec=/home/pi-chan/commonapi/dbus-1.10.10/test/test-service
+User=anyrandomuser
+

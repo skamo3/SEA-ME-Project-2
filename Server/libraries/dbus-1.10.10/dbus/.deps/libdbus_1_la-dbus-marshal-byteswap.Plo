@@ -1,0 +1,124 @@
+libdbus_1_la-dbus-marshal-byteswap.lo: dbus-marshal-byteswap.c \
+ /usr/include/stdc-predef.h ../config.h dbus-marshal-byteswap.h \
+ ../dbus/dbus-protocol.h ../dbus/dbus-marshal-recursive.h \
+ ../dbus/dbus-list.h ../dbus/dbus-internals.h ../dbus/dbus-memory.h \
+ ../dbus/dbus-macros.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/8/include/stddef.h ../dbus/dbus-types.h \
+ ../dbus/dbus-arch-deps.h ../dbus/dbus-errors.h ../dbus/dbus-sysdeps.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/8/include/stdint.h \
+ /usr/include/stdint.h \
+ /usr/include/arm-linux-gnueabihf/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/arm-linux-gnueabihf/sys/cdefs.h \
+ /usr/include/arm-linux-gnueabihf/bits/wordsize.h \
+ /usr/include/arm-linux-gnueabihf/bits/long-double.h \
+ /usr/include/arm-linux-gnueabihf/gnu/stubs.h \
+ /usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h \
+ /usr/include/arm-linux-gnueabihf/bits/types.h \
+ /usr/include/arm-linux-gnueabihf/bits/typesizes.h \
+ /usr/include/arm-linux-gnueabihf/bits/wchar.h \
+ /usr/include/arm-linux-gnueabihf/bits/stdint-intn.h \
+ /usr/include/arm-linux-gnueabihf/bits/stdint-uintn.h \
+ /usr/include/inttypes.h ../dbus/dbus-file.h ../dbus/dbus-string.h \
+ /usr/lib/gcc/arm-linux-gnueabihf/8/include/stdarg.h \
+ /usr/include/string.h \
+ /usr/include/arm-linux-gnueabihf/bits/types/locale_t.h \
+ /usr/include/arm-linux-gnueabihf/bits/types/__locale_t.h \
+ /usr/include/strings.h /usr/include/arm-linux-gnueabihf/sys/poll.h \
+ /usr/include/arm-linux-gnueabihf/bits/poll.h \
+ /usr/include/arm-linux-gnueabihf/bits/types/__sigset_t.h \
+ /usr/include/arm-linux-gnueabihf/bits/types/struct_timespec.h \
+ ../dbus/dbus-threads-internal.h ../dbus/dbus-threads.h \
+ dbus-marshal-basic.h /usr/include/byteswap.h \
+ /usr/include/arm-linux-gnueabihf/bits/byteswap.h dbus-signature.h
+
+/usr/include/stdc-predef.h:
+
+../config.h:
+
+dbus-marshal-byteswap.h:
+
+../dbus/dbus-protocol.h:
+
+../dbus/dbus-marshal-recursive.h:
+
+../dbus/dbus-list.h:
+
+../dbus/dbus-internals.h:
+
+../dbus/dbus-memory.h:
+
+../dbus/dbus-macros.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/8/include/stddef.h:
+
+../dbus/dbus-types.h:
+
+../dbus/dbus-arch-deps.h:
+
+../dbus/dbus-errors.h:
+
+../dbus/dbus-sysdeps.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/8/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/arm-linux-gnueabihf/bits/libc-header-start.h:
+
+/usr/include/features.h:
+
+/usr/include/arm-linux-gnueabihf/sys/cdefs.h:
+
+/usr/include/arm-linux-gnueabihf/bits/wordsize.h:
+
+/usr/include/arm-linux-gnueabihf/bits/long-double.h:
+
+/usr/include/arm-linux-gnueabihf/gnu/stubs.h:
+
+/usr/include/arm-linux-gnueabihf/gnu/stubs-hard.h:
+
+/usr/include/arm-linux-gnueabihf/bits/types.h:
+
+/usr/include/arm-linux-gnueabihf/bits/typesizes.h:
+
+/usr/include/arm-linux-gnueabihf/bits/wchar.h:
+
+/usr/include/arm-linux-gnueabihf/bits/stdint-intn.h:
+
+/usr/include/arm-linux-gnueabihf/bits/stdint-uintn.h:
+
+/usr/include/inttypes.h:
+
+../dbus/dbus-file.h:
+
+../dbus/dbus-string.h:
+
+/usr/lib/gcc/arm-linux-gnueabihf/8/include/stdarg.h:
+
+/usr/include/string.h:
+
+/usr/include/arm-linux-gnueabihf/bits/types/locale_t.h:
+
+/usr/include/arm-linux-gnueabihf/bits/types/__locale_t.h:
+
+/usr/include/strings.h:
+
+/usr/include/arm-linux-gnueabihf/sys/poll.h:
+
+/usr/include/arm-linux-gnueabihf/bits/poll.h:
+
+/usr/include/arm-linux-gnueabihf/bits/types/__sigset_t.h:
+
+/usr/include/arm-linux-gnueabihf/bits/types/struct_timespec.h:
+
+../dbus/dbus-threads-internal.h:
+
+../dbus/dbus-threads.h:
+
+dbus-marshal-basic.h:
+
+/usr/include/byteswap.h:
+
+/usr/include/arm-linux-gnueabihf/bits/byteswap.h:
+
+dbus-signature.h:
