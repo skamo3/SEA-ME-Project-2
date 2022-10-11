@@ -1,6 +1,9 @@
 #include "../includes/CANSocket.hpp"
 #include "../includes/utils.h"
 
+#include <thread>
+#include <CommonAPI/CommonAPI.hpp>
+
 int main()
 {
 	CANSocket CANSock;
