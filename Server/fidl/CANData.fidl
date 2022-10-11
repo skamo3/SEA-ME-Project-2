@@ -12,7 +12,7 @@ interface IPC {
 
   method canDataMethod {
     in {
-      CanData canFrame
+      Int32 id
     }
     out {
       CanData canFrame
