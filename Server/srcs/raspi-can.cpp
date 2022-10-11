@@ -13,8 +13,8 @@ int InitSocket(const char *ifname)
 	int ret = ioctl(sock_fd, SIOCGIFINDEX, &ifr);
 	if (ret < 0)
 		return PrintErrorText("Failed to get CAN interface index", ret);
-	printf("%sSuccess to get CAN interface index : %d%s\n", 
-					COLOR_BGREEN, ret, COLOR_RESET);
+	std::cout << COLOR_BGREEN << "Success to get CAN interface index : "
+	<< ret << COLOR_RESET << std::endl;
 
 	struct sockaddr_can addr;
 	addr.can_family = AF_CAN;
