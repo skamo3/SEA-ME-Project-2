@@ -61,9 +61,9 @@ public:
     
     static CommonAPI::DBus::DBusMethodWithReplyStubDispatcher<
         ::v1::commonapi::IPCStub,
-        std::tuple< int32_t>,
         std::tuple< IPC::CanData>,
-        std::tuple< CommonAPI::DBus::IntegerDeployment>,
+        std::tuple< IPC::CanData>,
+        std::tuple< ::v1::commonapi::IPC_::CanDataDeployment_t>,
         std::tuple< ::v1::commonapi::IPC_::CanDataDeployment_t>
     
         > canDataMethodStubDispatcher;
@@ -74,7 +74,7 @@ public:
         const std::shared_ptr<_Stub> &_stub)
     : CommonAPI::DBus::DBusStubAdapter(_address, _connection,false),
       IPCDBusStubAdapterHelper(_address, _connection, false, _stub) {
-        IPCDBusStubAdapterHelper::addStubDispatcher({ "canDataMethod", "i" }, &canDataMethodStubDispatcher);
+        IPCDBusStubAdapterHelper::addStubDispatcher({ "canDataMethod", "(iiii)" }, &canDataMethodStubDispatcher);
         IPCDBusStubAdapterHelper::addStubDispatcher({ "getInterfaceVersion", "" }, &getIPCInterfaceVersionStubDispatcher);
     }
 
@@ -85,7 +85,7 @@ protected:
                 "<arg name=\"value\" type=\"uu\" direction=\"out\" />"
             "</method>\n"
             "<method name=\"canDataMethod\">\n"
-            "<arg name=\"_id\" type=\"i\" direction=\"in\" />\n"
+            "<arg name=\"_frame\" type=\"(iiii)\" direction=\"in\" />\n"
             "<arg name=\"_canFrame\" type=\"(iiii)\" direction=\"out\" />\n"
             "</method>\n"
             ;
@@ -106,14 +106,14 @@ CommonAPI::DBus::DBusGetAttributeStubDispatcher<
 template <typename _Stub, typename... _Stubs>
 CommonAPI::DBus::DBusMethodWithReplyStubDispatcher<
     ::v1::commonapi::IPCStub,
-    std::tuple< int32_t>,
     std::tuple< IPC::CanData>,
-    std::tuple< CommonAPI::DBus::IntegerDeployment>,
+    std::tuple< IPC::CanData>,
+    std::tuple< ::v1::commonapi::IPC_::CanDataDeployment_t>,
     std::tuple< ::v1::commonapi::IPC_::CanDataDeployment_t>
 
     > IPCDBusStubAdapterInternal<_Stub, _Stubs...>::canDataMethodStubDispatcher(
     &IPCStub::canDataMethod, "(iiii)",
-    std::make_tuple(static_cast< CommonAPI::DBus::IntegerDeployment* >(nullptr)),
+    std::make_tuple(static_cast< ::v1::commonapi::IPC_::CanDataDeployment_t* >(nullptr)),
     std::make_tuple(static_cast< ::v1::commonapi::IPC_::CanDataDeployment_t* >(nullptr)));
 
 

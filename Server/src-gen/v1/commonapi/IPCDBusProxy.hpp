@@ -53,8 +53,8 @@ public:
 
 
 
-    virtual void canDataMethod(const int32_t &_id, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info);
-    virtual std::future<CommonAPI::CallStatus> canDataMethodAsync(const int32_t &_id, CanDataMethodAsyncCallback _callback, const CommonAPI::CallInfo *_info);
+    virtual void canDataMethod(const IPC::CanData &_frame, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info);
+    virtual std::future<CommonAPI::CallStatus> canDataMethodAsync(const IPC::CanData &_frame, CanDataMethodAsyncCallback _callback, const CommonAPI::CallInfo *_info);
 
 
     virtual void getOwnVersion(uint16_t& ownVersionMajor, uint16_t& ownVersionMinor) const;

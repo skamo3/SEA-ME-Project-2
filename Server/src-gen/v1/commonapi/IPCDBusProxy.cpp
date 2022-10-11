@@ -37,12 +37,12 @@ IPCDBusProxy::IPCDBusProxy(
 
 
 
-    void IPCDBusProxy::canDataMethod(const int32_t &_id, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info) {
-        CommonAPI::Deployable< int32_t, CommonAPI::DBus::IntegerDeployment> deploy_id(_id, static_cast< CommonAPI::DBus::IntegerDeployment* >(nullptr));
+    void IPCDBusProxy::canDataMethod(const IPC::CanData &_frame, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info) {
+        CommonAPI::Deployable< IPC::CanData, ::v1::commonapi::IPC_::CanDataDeployment_t> deploy_frame(_frame, static_cast< ::v1::commonapi::IPC_::CanDataDeployment_t* >(nullptr));
         CommonAPI::Deployable< IPC::CanData, ::v1::commonapi::IPC_::CanDataDeployment_t> deploy_canFrame(static_cast< ::v1::commonapi::IPC_::CanDataDeployment_t* >(nullptr));
         CommonAPI::DBus::DBusProxyHelper<
             CommonAPI::DBus::DBusSerializableArguments<
-            CommonAPI::Deployable< int32_t, CommonAPI::DBus::IntegerDeployment >
+            CommonAPI::Deployable< IPC::CanData, ::v1::commonapi::IPC_::CanDataDeployment_t >
             >,
             CommonAPI::DBus::DBusSerializableArguments<
             CommonAPI::Deployable< IPC::CanData,::v1::commonapi::IPC_::CanDataDeployment_t>
@@ -50,19 +50,19 @@ IPCDBusProxy::IPCDBusProxy(
             >::callMethodWithReply(
         *this,
         "canDataMethod",
-        "i",
+        "(iiii)",
 (_info ? _info : &CommonAPI::DBus::defaultCallInfo),
-deploy_id,
+deploy_frame,
 _internalCallStatus,
 deploy_canFrame);
 _canFrame = deploy_canFrame.getValue();
 }
-    std::future<CommonAPI::CallStatus> IPCDBusProxy::canDataMethodAsync(const int32_t &_id, CanDataMethodAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
-        CommonAPI::Deployable< int32_t, CommonAPI::DBus::IntegerDeployment> deploy_id(_id, static_cast< CommonAPI::DBus::IntegerDeployment* >(nullptr));
+    std::future<CommonAPI::CallStatus> IPCDBusProxy::canDataMethodAsync(const IPC::CanData &_frame, CanDataMethodAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+        CommonAPI::Deployable< IPC::CanData, ::v1::commonapi::IPC_::CanDataDeployment_t> deploy_frame(_frame, static_cast< ::v1::commonapi::IPC_::CanDataDeployment_t* >(nullptr));
         CommonAPI::Deployable< IPC::CanData, ::v1::commonapi::IPC_::CanDataDeployment_t> deploy_canFrame(static_cast< ::v1::commonapi::IPC_::CanDataDeployment_t* >(nullptr));
         return CommonAPI::DBus::DBusProxyHelper<
             CommonAPI::DBus::DBusSerializableArguments<
-            CommonAPI::Deployable< int32_t, CommonAPI::DBus::IntegerDeployment >
+            CommonAPI::Deployable< IPC::CanData, ::v1::commonapi::IPC_::CanDataDeployment_t >
             >,
             CommonAPI::DBus::DBusSerializableArguments<
             CommonAPI::Deployable< IPC::CanData,::v1::commonapi::IPC_::CanDataDeployment_t>
@@ -70,9 +70,9 @@ _canFrame = deploy_canFrame.getValue();
             >::callMethodAsync(
         *this,
         "canDataMethod",
-        "i",
+        "(iiii)",
         (_info ? _info : &CommonAPI::DBus::defaultCallInfo),
-        deploy_id,
+        deploy_frame,
         [_callback] (CommonAPI::CallStatus _internalCallStatus, CommonAPI::Deployable< IPC::CanData, ::v1::commonapi::IPC_::CanDataDeployment_t > _canFrame) {
             if (_callback)
                 _callback(_internalCallStatus, _canFrame.getValue());

@@ -29,9 +29,9 @@ IPCStubRemoteEvent* IPCStubDefault::initStubAdapter(const std::shared_ptr< IPCSt
 }
 
 
-void IPCStubDefault::canDataMethod(const std::shared_ptr<CommonAPI::ClientId> _client, int32_t _id, canDataMethodReply_t _reply) {
+void IPCStubDefault::canDataMethod(const std::shared_ptr<CommonAPI::ClientId> _client, IPC::CanData _frame, canDataMethodReply_t _reply) {
     (void)_client;
-    (void)_id;
+    (void)_frame;
     IPC::CanData canFrame = {};
     _reply(canFrame);
 }

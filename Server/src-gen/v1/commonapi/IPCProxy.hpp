@@ -46,7 +46,7 @@ public:
      * "SUCCESS" or which type of error has occurred. In case of an error, ONLY the CallStatus
      * will be set.
      */
-    virtual void canDataMethod(const int32_t &_id, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info = nullptr);
+    virtual void canDataMethod(const IPC::CanData &_frame, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info = nullptr);
     /**
      * Calls canDataMethod with asynchronous semantics.
      *
@@ -57,7 +57,7 @@ public:
      * The std::future returned by this method will be fulfilled at arrival of the reply.
      * It will provide the same value for CallStatus as will be handed to the callback.
      */
-    virtual std::future<CommonAPI::CallStatus> canDataMethodAsync(const int32_t &_id, CanDataMethodAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
+    virtual std::future<CommonAPI::CallStatus> canDataMethodAsync(const IPC::CanData &_frame, CanDataMethodAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr);
 
 
     /**
@@ -108,13 +108,13 @@ IPCProxy<_AttributeExtensions...>::~IPCProxy() {
 }
 
 template <typename ... _AttributeExtensions>
-void IPCProxy<_AttributeExtensions...>::canDataMethod(const int32_t &_id, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info) {
-    delegate_->canDataMethod(_id, _internalCallStatus, _canFrame, _info);
+void IPCProxy<_AttributeExtensions...>::canDataMethod(const IPC::CanData &_frame, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info) {
+    delegate_->canDataMethod(_frame, _internalCallStatus, _canFrame, _info);
 }
 
 template <typename ... _AttributeExtensions>
-std::future<CommonAPI::CallStatus> IPCProxy<_AttributeExtensions...>::canDataMethodAsync(const int32_t &_id, CanDataMethodAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
-    return delegate_->canDataMethodAsync(_id, _callback, _info);
+std::future<CommonAPI::CallStatus> IPCProxy<_AttributeExtensions...>::canDataMethodAsync(const IPC::CanData &_frame, CanDataMethodAsyncCallback _callback, const CommonAPI::CallInfo *_info) {
+    return delegate_->canDataMethodAsync(_frame, _callback, _info);
 }
 
 template <typename ... _AttributeExtensions>

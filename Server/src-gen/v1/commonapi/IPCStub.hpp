@@ -98,7 +98,7 @@ public:
 
 
     /// This is the method that will be called on remote calls on the method canDataMethod.
-    virtual void canDataMethod(const std::shared_ptr<CommonAPI::ClientId> _client, int32_t _id, canDataMethodReply_t _reply) = 0;
+    virtual void canDataMethod(const std::shared_ptr<CommonAPI::ClientId> _client, IPC::CanData _frame, canDataMethodReply_t _reply) = 0;
 
     
     using CommonAPI::Stub<IPCStubAdapter, IPCStubRemoteEvent>::initStubAdapter;

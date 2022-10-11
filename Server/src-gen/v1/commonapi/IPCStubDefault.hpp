@@ -51,7 +51,7 @@ public:
     COMMONAPI_EXPORT const CommonAPI::Version& getInterfaceVersion(std::shared_ptr<CommonAPI::ClientId> _client);
 
 
-    COMMONAPI_EXPORT virtual void canDataMethod(const std::shared_ptr<CommonAPI::ClientId> _client, int32_t _id, canDataMethodReply_t _reply);
+    COMMONAPI_EXPORT virtual void canDataMethod(const std::shared_ptr<CommonAPI::ClientId> _client, IPC::CanData _frame, canDataMethodReply_t _reply);
 
 
     

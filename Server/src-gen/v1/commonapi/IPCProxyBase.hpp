@@ -42,8 +42,8 @@ public:
 
 
 
-    virtual void canDataMethod(const int32_t &_id, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info = nullptr) = 0;
-    virtual std::future<CommonAPI::CallStatus> canDataMethodAsync(const int32_t &_id, CanDataMethodAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr) = 0;
+    virtual void canDataMethod(const IPC::CanData &_frame, CommonAPI::CallStatus &_internalCallStatus, IPC::CanData &_canFrame, const CommonAPI::CallInfo *_info = nullptr) = 0;
+    virtual std::future<CommonAPI::CallStatus> canDataMethodAsync(const IPC::CanData &_frame, CanDataMethodAsyncCallback _callback = nullptr, const CommonAPI::CallInfo *_info = nullptr) = 0;
 };
 
 } // namespace commonapi
