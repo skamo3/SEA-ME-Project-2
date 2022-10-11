@@ -10,8 +10,10 @@ public:
     IPCServer();
     virtual ~IPCServer();
 
-    virtual void canDataMethod(const std::shared_ptr<CommonAPI::ClientId> _client, int32_t _id, canDataMethodReply_t _reply);
+    virtual void canDataMethod(const std::shared_ptr<CommonAPI::ClientId> _client,
+    v1::commonapi::IPC::CanData _frame, canDataMethodReply_t _reply);
 
+    void executeServer();
 
 };
 

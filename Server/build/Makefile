@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/pi-chan/workspace/Server/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,222 +111,276 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named HelloWorldClient
+# Target rules for targets named IPCClient
 
 # Build rule for target.
-HelloWorldClient: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 HelloWorldClient
-.PHONY : HelloWorldClient
+IPCClient: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 IPCClient
+.PHONY : IPCClient
 
 # fast build rule for target.
-HelloWorldClient/fast:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/build
-.PHONY : HelloWorldClient/fast
+IPCClient/fast:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/build
+.PHONY : IPCClient/fast
 
 #=============================================================================
-# Target rules for targets named HelloWorldService
+# Target rules for targets named IPCService
 
 # Build rule for target.
-HelloWorldService: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 HelloWorldService
-.PHONY : HelloWorldService
+IPCService: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 IPCService
+.PHONY : IPCService
 
 # fast build rule for target.
-HelloWorldService/fast:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/build
-.PHONY : HelloWorldService/fast
+IPCService/fast:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/build
+.PHONY : IPCService/fast
 
-libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.o: libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.o
+src-gen/v1/commonapi/IPCDBusDeployment.o: src-gen/v1/commonapi/IPCDBusDeployment.cpp.o
 
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.o
-
-# target to build an object file
-libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.o:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.o
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.o
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.o
-
-libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.i: libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.i
-
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.i
-
-# target to preprocess a source file
-libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.i:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.i
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.i
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.i
-
-libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.s: libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.s
-
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.s
-
-# target to generate assembly for a file
-libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.s:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.s
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.s
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.cpp.s
-
-libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.o: libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.o
-
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.o
+.PHONY : src-gen/v1/commonapi/IPCDBusDeployment.o
 
 # target to build an object file
-libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.o:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.o
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.o
+src-gen/v1/commonapi/IPCDBusDeployment.cpp.o:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/src-gen/v1/commonapi/IPCDBusDeployment.cpp.o
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/src-gen/v1/commonapi/IPCDBusDeployment.cpp.o
+.PHONY : src-gen/v1/commonapi/IPCDBusDeployment.cpp.o
 
-libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.i: libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.i
+src-gen/v1/commonapi/IPCDBusDeployment.i: src-gen/v1/commonapi/IPCDBusDeployment.cpp.i
 
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.i
+.PHONY : src-gen/v1/commonapi/IPCDBusDeployment.i
 
 # target to preprocess a source file
-libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.i:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.i
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.i
+src-gen/v1/commonapi/IPCDBusDeployment.cpp.i:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/src-gen/v1/commonapi/IPCDBusDeployment.cpp.i
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/src-gen/v1/commonapi/IPCDBusDeployment.cpp.i
+.PHONY : src-gen/v1/commonapi/IPCDBusDeployment.cpp.i
 
-libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.s: libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.s
+src-gen/v1/commonapi/IPCDBusDeployment.s: src-gen/v1/commonapi/IPCDBusDeployment.cpp.s
 
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.s
+.PHONY : src-gen/v1/commonapi/IPCDBusDeployment.s
 
 # target to generate assembly for a file
-libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.s:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.s
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp.s
+src-gen/v1/commonapi/IPCDBusDeployment.cpp.s:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/src-gen/v1/commonapi/IPCDBusDeployment.cpp.s
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/src-gen/v1/commonapi/IPCDBusDeployment.cpp.s
+.PHONY : src-gen/v1/commonapi/IPCDBusDeployment.cpp.s
 
-libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.o: libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.o
+src-gen/v1/commonapi/IPCDBusProxy.o: src-gen/v1/commonapi/IPCDBusProxy.cpp.o
 
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.o
+.PHONY : src-gen/v1/commonapi/IPCDBusProxy.o
 
 # target to build an object file
-libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.o:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.o
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.o
+src-gen/v1/commonapi/IPCDBusProxy.cpp.o:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/src-gen/v1/commonapi/IPCDBusProxy.cpp.o
+.PHONY : src-gen/v1/commonapi/IPCDBusProxy.cpp.o
 
-libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.i: libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.i
+src-gen/v1/commonapi/IPCDBusProxy.i: src-gen/v1/commonapi/IPCDBusProxy.cpp.i
 
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.i
+.PHONY : src-gen/v1/commonapi/IPCDBusProxy.i
 
 # target to preprocess a source file
-libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.i:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.i
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.i
+src-gen/v1/commonapi/IPCDBusProxy.cpp.i:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/src-gen/v1/commonapi/IPCDBusProxy.cpp.i
+.PHONY : src-gen/v1/commonapi/IPCDBusProxy.cpp.i
 
-libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.s: libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.s
+src-gen/v1/commonapi/IPCDBusProxy.s: src-gen/v1/commonapi/IPCDBusProxy.cpp.s
 
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.s
+.PHONY : src-gen/v1/commonapi/IPCDBusProxy.s
 
 # target to generate assembly for a file
-libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.s:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.s
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.cpp.s
+src-gen/v1/commonapi/IPCDBusProxy.cpp.s:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/src-gen/v1/commonapi/IPCDBusProxy.cpp.s
+.PHONY : src-gen/v1/commonapi/IPCDBusProxy.cpp.s
 
-libraries/src-gen/v1/commonapi/HelloWorldStubDefault.o: libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.o
+src-gen/v1/commonapi/IPCDBusStubAdapter.o: src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.o
 
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldStubDefault.o
+.PHONY : src-gen/v1/commonapi/IPCDBusStubAdapter.o
 
 # target to build an object file
-libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.o:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.o
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.o
+src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.o:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.o
+.PHONY : src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.o
 
-libraries/src-gen/v1/commonapi/HelloWorldStubDefault.i: libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.i
+src-gen/v1/commonapi/IPCDBusStubAdapter.i: src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.i
 
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldStubDefault.i
+.PHONY : src-gen/v1/commonapi/IPCDBusStubAdapter.i
 
 # target to preprocess a source file
-libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.i:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.i
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.i
+src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.i:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.i
+.PHONY : src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.i
 
-libraries/src-gen/v1/commonapi/HelloWorldStubDefault.s: libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.s
+src-gen/v1/commonapi/IPCDBusStubAdapter.s: src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.s
 
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldStubDefault.s
+.PHONY : src-gen/v1/commonapi/IPCDBusStubAdapter.s
 
 # target to generate assembly for a file
-libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.s:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.s
-.PHONY : libraries/src-gen/v1/commonapi/HelloWorldStubDefault.cpp.s
+src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.s:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.s
+.PHONY : src-gen/v1/commonapi/IPCDBusStubAdapter.cpp.s
 
-srcs/HelloWorldClient.o: srcs/HelloWorldClient.cpp.o
+src-gen/v1/commonapi/IPCStubDefault.o: src-gen/v1/commonapi/IPCStubDefault.cpp.o
 
-.PHONY : srcs/HelloWorldClient.o
+.PHONY : src-gen/v1/commonapi/IPCStubDefault.o
 
 # target to build an object file
-srcs/HelloWorldClient.cpp.o:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/srcs/HelloWorldClient.cpp.o
-.PHONY : srcs/HelloWorldClient.cpp.o
+src-gen/v1/commonapi/IPCStubDefault.cpp.o:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/src-gen/v1/commonapi/IPCStubDefault.cpp.o
+.PHONY : src-gen/v1/commonapi/IPCStubDefault.cpp.o
 
-srcs/HelloWorldClient.i: srcs/HelloWorldClient.cpp.i
+src-gen/v1/commonapi/IPCStubDefault.i: src-gen/v1/commonapi/IPCStubDefault.cpp.i
 
-.PHONY : srcs/HelloWorldClient.i
+.PHONY : src-gen/v1/commonapi/IPCStubDefault.i
 
 # target to preprocess a source file
-srcs/HelloWorldClient.cpp.i:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/srcs/HelloWorldClient.cpp.i
-.PHONY : srcs/HelloWorldClient.cpp.i
+src-gen/v1/commonapi/IPCStubDefault.cpp.i:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/src-gen/v1/commonapi/IPCStubDefault.cpp.i
+.PHONY : src-gen/v1/commonapi/IPCStubDefault.cpp.i
 
-srcs/HelloWorldClient.s: srcs/HelloWorldClient.cpp.s
+src-gen/v1/commonapi/IPCStubDefault.s: src-gen/v1/commonapi/IPCStubDefault.cpp.s
 
-.PHONY : srcs/HelloWorldClient.s
+.PHONY : src-gen/v1/commonapi/IPCStubDefault.s
 
 # target to generate assembly for a file
-srcs/HelloWorldClient.cpp.s:
-	$(MAKE) -f CMakeFiles/HelloWorldClient.dir/build.make CMakeFiles/HelloWorldClient.dir/srcs/HelloWorldClient.cpp.s
-.PHONY : srcs/HelloWorldClient.cpp.s
+src-gen/v1/commonapi/IPCStubDefault.cpp.s:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/src-gen/v1/commonapi/IPCStubDefault.cpp.s
+.PHONY : src-gen/v1/commonapi/IPCStubDefault.cpp.s
 
-srcs/HelloWorldService.o: srcs/HelloWorldService.cpp.o
+srcs/CANSocket.o: srcs/CANSocket.cpp.o
 
-.PHONY : srcs/HelloWorldService.o
+.PHONY : srcs/CANSocket.o
 
 # target to build an object file
-srcs/HelloWorldService.cpp.o:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/srcs/HelloWorldService.cpp.o
-.PHONY : srcs/HelloWorldService.cpp.o
+srcs/CANSocket.cpp.o:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/CANSocket.cpp.o
+.PHONY : srcs/CANSocket.cpp.o
 
-srcs/HelloWorldService.i: srcs/HelloWorldService.cpp.i
+srcs/CANSocket.i: srcs/CANSocket.cpp.i
 
-.PHONY : srcs/HelloWorldService.i
+.PHONY : srcs/CANSocket.i
 
 # target to preprocess a source file
-srcs/HelloWorldService.cpp.i:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/srcs/HelloWorldService.cpp.i
-.PHONY : srcs/HelloWorldService.cpp.i
+srcs/CANSocket.cpp.i:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/CANSocket.cpp.i
+.PHONY : srcs/CANSocket.cpp.i
 
-srcs/HelloWorldService.s: srcs/HelloWorldService.cpp.s
+srcs/CANSocket.s: srcs/CANSocket.cpp.s
 
-.PHONY : srcs/HelloWorldService.s
+.PHONY : srcs/CANSocket.s
 
 # target to generate assembly for a file
-srcs/HelloWorldService.cpp.s:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/srcs/HelloWorldService.cpp.s
-.PHONY : srcs/HelloWorldService.cpp.s
+srcs/CANSocket.cpp.s:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/CANSocket.cpp.s
+.PHONY : srcs/CANSocket.cpp.s
 
-srcs/HelloWorldStubImpl.o: srcs/HelloWorldStubImpl.cpp.o
+srcs/IPCClient.o: srcs/IPCClient.cpp.o
 
-.PHONY : srcs/HelloWorldStubImpl.o
+.PHONY : srcs/IPCClient.o
 
 # target to build an object file
-srcs/HelloWorldStubImpl.cpp.o:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/srcs/HelloWorldStubImpl.cpp.o
-.PHONY : srcs/HelloWorldStubImpl.cpp.o
+srcs/IPCClient.cpp.o:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/srcs/IPCClient.cpp.o
+.PHONY : srcs/IPCClient.cpp.o
 
-srcs/HelloWorldStubImpl.i: srcs/HelloWorldStubImpl.cpp.i
+srcs/IPCClient.i: srcs/IPCClient.cpp.i
 
-.PHONY : srcs/HelloWorldStubImpl.i
+.PHONY : srcs/IPCClient.i
 
 # target to preprocess a source file
-srcs/HelloWorldStubImpl.cpp.i:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/srcs/HelloWorldStubImpl.cpp.i
-.PHONY : srcs/HelloWorldStubImpl.cpp.i
+srcs/IPCClient.cpp.i:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/srcs/IPCClient.cpp.i
+.PHONY : srcs/IPCClient.cpp.i
 
-srcs/HelloWorldStubImpl.s: srcs/HelloWorldStubImpl.cpp.s
+srcs/IPCClient.s: srcs/IPCClient.cpp.s
 
-.PHONY : srcs/HelloWorldStubImpl.s
+.PHONY : srcs/IPCClient.s
 
 # target to generate assembly for a file
-srcs/HelloWorldStubImpl.cpp.s:
-	$(MAKE) -f CMakeFiles/HelloWorldService.dir/build.make CMakeFiles/HelloWorldService.dir/srcs/HelloWorldStubImpl.cpp.s
-.PHONY : srcs/HelloWorldStubImpl.cpp.s
+srcs/IPCClient.cpp.s:
+	$(MAKE) -f CMakeFiles/IPCClient.dir/build.make CMakeFiles/IPCClient.dir/srcs/IPCClient.cpp.s
+.PHONY : srcs/IPCClient.cpp.s
+
+srcs/IPCServer.o: srcs/IPCServer.cpp.o
+
+.PHONY : srcs/IPCServer.o
+
+# target to build an object file
+srcs/IPCServer.cpp.o:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/IPCServer.cpp.o
+.PHONY : srcs/IPCServer.cpp.o
+
+srcs/IPCServer.i: srcs/IPCServer.cpp.i
+
+.PHONY : srcs/IPCServer.i
+
+# target to preprocess a source file
+srcs/IPCServer.cpp.i:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/IPCServer.cpp.i
+.PHONY : srcs/IPCServer.cpp.i
+
+srcs/IPCServer.s: srcs/IPCServer.cpp.s
+
+.PHONY : srcs/IPCServer.s
+
+# target to generate assembly for a file
+srcs/IPCServer.cpp.s:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/IPCServer.cpp.s
+.PHONY : srcs/IPCServer.cpp.s
+
+srcs/main.o: srcs/main.cpp.o
+
+.PHONY : srcs/main.o
+
+# target to build an object file
+srcs/main.cpp.o:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/main.cpp.o
+.PHONY : srcs/main.cpp.o
+
+srcs/main.i: srcs/main.cpp.i
+
+.PHONY : srcs/main.i
+
+# target to preprocess a source file
+srcs/main.cpp.i:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/main.cpp.i
+.PHONY : srcs/main.cpp.i
+
+srcs/main.s: srcs/main.cpp.s
+
+.PHONY : srcs/main.s
+
+# target to generate assembly for a file
+srcs/main.cpp.s:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/main.cpp.s
+.PHONY : srcs/main.cpp.s
+
+srcs/utils.o: srcs/utils.cpp.o
+
+.PHONY : srcs/utils.o
+
+# target to build an object file
+srcs/utils.cpp.o:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/utils.cpp.o
+.PHONY : srcs/utils.cpp.o
+
+srcs/utils.i: srcs/utils.cpp.i
+
+.PHONY : srcs/utils.i
+
+# target to preprocess a source file
+srcs/utils.cpp.i:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/utils.cpp.i
+.PHONY : srcs/utils.cpp.i
+
+srcs/utils.s: srcs/utils.cpp.s
+
+.PHONY : srcs/utils.s
+
+# target to generate assembly for a file
+srcs/utils.cpp.s:
+	$(MAKE) -f CMakeFiles/IPCService.dir/build.make CMakeFiles/IPCService.dir/srcs/utils.cpp.s
+.PHONY : srcs/utils.cpp.s
 
 # Help Target
 help:
@@ -334,31 +388,37 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... HelloWorldClient"
-	@echo "... HelloWorldService"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.o"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.i"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldDBusDeployment.s"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.o"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.i"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.s"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.o"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.i"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldDBusStubAdapter.s"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldStubDefault.o"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldStubDefault.i"
-	@echo "... libraries/src-gen/v1/commonapi/HelloWorldStubDefault.s"
-	@echo "... srcs/HelloWorldClient.o"
-	@echo "... srcs/HelloWorldClient.i"
-	@echo "... srcs/HelloWorldClient.s"
-	@echo "... srcs/HelloWorldService.o"
-	@echo "... srcs/HelloWorldService.i"
-	@echo "... srcs/HelloWorldService.s"
-	@echo "... srcs/HelloWorldStubImpl.o"
-	@echo "... srcs/HelloWorldStubImpl.i"
-	@echo "... srcs/HelloWorldStubImpl.s"
+	@echo "... edit_cache"
+	@echo "... IPCClient"
+	@echo "... IPCService"
+	@echo "... src-gen/v1/commonapi/IPCDBusDeployment.o"
+	@echo "... src-gen/v1/commonapi/IPCDBusDeployment.i"
+	@echo "... src-gen/v1/commonapi/IPCDBusDeployment.s"
+	@echo "... src-gen/v1/commonapi/IPCDBusProxy.o"
+	@echo "... src-gen/v1/commonapi/IPCDBusProxy.i"
+	@echo "... src-gen/v1/commonapi/IPCDBusProxy.s"
+	@echo "... src-gen/v1/commonapi/IPCDBusStubAdapter.o"
+	@echo "... src-gen/v1/commonapi/IPCDBusStubAdapter.i"
+	@echo "... src-gen/v1/commonapi/IPCDBusStubAdapter.s"
+	@echo "... src-gen/v1/commonapi/IPCStubDefault.o"
+	@echo "... src-gen/v1/commonapi/IPCStubDefault.i"
+	@echo "... src-gen/v1/commonapi/IPCStubDefault.s"
+	@echo "... srcs/CANSocket.o"
+	@echo "... srcs/CANSocket.i"
+	@echo "... srcs/CANSocket.s"
+	@echo "... srcs/IPCClient.o"
+	@echo "... srcs/IPCClient.i"
+	@echo "... srcs/IPCClient.s"
+	@echo "... srcs/IPCServer.o"
+	@echo "... srcs/IPCServer.i"
+	@echo "... srcs/IPCServer.s"
+	@echo "... srcs/main.o"
+	@echo "... srcs/main.i"
+	@echo "... srcs/main.s"
+	@echo "... srcs/utils.o"
+	@echo "... srcs/utils.i"
+	@echo "... srcs/utils.s"
 .PHONY : help
 
 

@@ -18,7 +18,7 @@ int main() {
 
     CommonAPI::CallStatus callStatus;
     IPC::CanData canFrame;
-    myProxy->canDataMethod(1, callStatus, canFrame);
+    myProxy->canDataMethod(canFrame, callStatus, canFrame);
     std::cout << "Got message: '" << canFrame.getRpm() << "'\n";
     return 0;
 }
