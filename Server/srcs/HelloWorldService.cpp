@@ -2,7 +2,7 @@
 #include <iostream>
 #include <thread>
 #include <CommonAPI/CommonAPI.hpp>
-#include "../includes/HelloWorldStubImpl.hpp""
+#include "../includes/HelloWorldStubImpl.hpp"
 
 using namespace std;
 
