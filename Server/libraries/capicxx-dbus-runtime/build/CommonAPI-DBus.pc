@@ -1,0 +1,13 @@
+prefix=/usr/local
+exec_prefix=/usr/local
+libdir=/usr/local/lib
+includedir=/usr/local/include
+
+Name: 
+Description: GENIVI Common API D-Bus C++ Library
+Version: 3.1.12
+Libs: -L${libdir} -lCommonAPI-DBus
+Requires: CommonAPI
+Requires.private: dbus-1
+Cflags: -I${includedir}/CommonAPI-3.1
+
