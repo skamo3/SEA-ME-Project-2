@@ -1,6 +1,6 @@
 #include "../includes/utils.h"
 
-int PrintErrorText(const std::string errorText, int errorNo)
+int PrintErrorText(const std::string &errorText, int errorNo)
 {
 	std::cout << COLOR_RED;
 	std::cout << errorText;
@@ -8,7 +8,7 @@ int PrintErrorText(const std::string errorText, int errorNo)
 	return errorNo;
 }
 
-int PrintErrorText(const std::string errorText, int errorNo, int value)
+int PrintErrorText(const std::string &errorText, int errorNo, int value)
 {
 	std::cout << COLOR_RED;
 	std::cout << errorText << " : " << value;
@@ -16,7 +16,7 @@ int PrintErrorText(const std::string errorText, int errorNo, int value)
 	return errorNo;
 }
 
-void PrintSuccessText(const std::string Text)
+void PrintSuccessText(const std::string &Text)
 {
 	std::cout << COLOR_RED;
 	std::cout << Text;

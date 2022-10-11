@@ -16,7 +16,7 @@
 # define COLOR_BCYAN	"\x1b[96m"
 # define COLOR_RESET	"\x1b[0m"
 
-int PrintErrorText(const std::string errorText, int errorNo);
-void PrintSuccessText(const std::string Text);
-int PrintErrorText(const std::string errorText, int errorNo, int value);
+int PrintErrorText(const std::string &errorText, int errorNo);
+void PrintSuccessText(const std::string &Text);
+int PrintErrorText(const std::string &errorText, int errorNo, int value);
 
