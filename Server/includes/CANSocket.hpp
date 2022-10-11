@@ -24,7 +24,7 @@ class CANSocket
 		void initSocket(std::string const &ifname);
 		int readData();
 
-		int getSocketFD() const;
+		int getSocketFD() const; 
 		struct can_frame getCanFrame() const;
 
 	private:

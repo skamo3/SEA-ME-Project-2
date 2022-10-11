@@ -72,11 +72,15 @@ int CANSocket::readData()
 	else if (canFrame.can_dlc > CAN_MAX_DLEN)
 		return PrintErrorText("Invalid dlc", -1, canFrame.can_dlc);
 	
-	std::cout << "ID =>[" << canFrame.can_id << "] | size{" << canFrame.can_dlc << "}" << std::endl;
+	std::cout << "ID =>[0x" << std::hex << canFrame.can_id << "] | size{" << int(canFrame.can_dlc) << "}" << std::endl;
 
 	for (int i = 0; i < canFrame.can_dlc; i++)
-		std::cout << std::setprecision(3) << canFrame.data[i] << " ";
+		std::cout << std::hex << int(canFrame.data[i]) << " : ";
 	std::cout << std::endl;
+
+	int rpm = (canFrame.data[0] * 256) + canFrame.data[1];
+
+	std::cout << "RPM : " << std::dec << rpm << std::endl;
 
 	return rd_byte;
 }
