@@ -4,8 +4,15 @@ QT += quick
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+_ROOT = $$_PRO_FILE_PWD_
+INCLUDEPATH += $$_ROOT/../../Server/src-gen
+
 SOURCES += \
         main.cpp
+        src-gen/v1/commonapi/IPCDBusDeployment.cpp \
+        src-gen/v1/commonapi/IPCDBusProxy.cpp \
+        src-gen/v1/commonapi/IPCDBusStubAdapter.cpp \
+        src-gen/v1/commonapi/IPCStubDefault.cpp
 
 RESOURCES += qml.qrc
 
