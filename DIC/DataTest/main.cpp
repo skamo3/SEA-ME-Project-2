@@ -28,7 +28,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    QDBusInterface iface("org.example.QtDBus.PingExample", "/", "", QDBusConnection::sessionBus());
+    qDebug() << "name: " << QDBusConnection::sessionBus().name();
+
+    QDBusInterface iface("org.test", "/", "", QDBusConnection::sessionBus());
     qDebug() << "test";
     if (iface.isValid()) {
         QDBusReply<QString> reply = iface.call("ping", argc > 1 ? argv[1] : "");
@@ -38,7 +40,6 @@ int main(int argc, char *argv[])
             fprintf(stderr, "Call failed: %s\n", qPrintable(reply.error().message()));
             return 1;
         }
-
     }
 
     DataController controller;

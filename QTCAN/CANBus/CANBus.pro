@@ -1,5 +1,7 @@
 QT -= gui
 
+QT += dbus
+
 CONFIG += c++17 console
 CONFIG -= app_bundle
 
@@ -10,7 +12,8 @@ CONFIG -= app_bundle
 SOURCES += \
         ../../Server/srcs/CANSocket.cpp \
         ../../Server/srcs/utils.cpp \
-        main.cpp
+        main.cpp \
+        testobj.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -19,6 +22,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     ../../Server/includes/CANSocket.hpp \
-    ../../Server/includes/utils.h
+    ../../Server/includes/utils.h \
+    testobj.h
 
 RESOURCES +=
