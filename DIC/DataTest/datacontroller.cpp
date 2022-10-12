@@ -1,7 +1,7 @@
 #include "datacontroller.h"
 
 DataController::DataController(QObject *parent)
-    : QObject{parent}
+    : QObject{parent}, Number("0")
 {
 
 }
