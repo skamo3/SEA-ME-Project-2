@@ -9,7 +9,12 @@ INCLUDEPATH += $$_ROOT/../../Server/src-gen
 
 SOURCES += \
         datacontroller.cpp \
-        main.cpp
+        main.cpp \
+        $$INCLUDEPATH/v1/commonapi/IPCDBusDeployment.cpp \
+        $$INCLUDEPATH/v1/commonapi/IPCDBusProxy.cpp \
+        $$INCLUDEPATH/v1/commonapi/IPCDBusStubAdapter.cpp \
+        $$INCLUDEPATH/v1/commonapi/IPCStubDefault.cpp \
+
 
 RESOURCES += qml.qrc \
     components/components.qrc \
@@ -27,7 +32,16 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    datacontroller.h
+    datacontroller.h \
+    $$INCLUDEPATH/v1/commonapi/IPCDBusDeployment.hpp \
+    $$INCLUDEPATH/v1/commonapi/IPCDBusProxy.hpp \
+    $$INCLUDEPATH/v1/commonapi/IPCDBusStubAdapter.hpp \
+    $$INCLUDEPATH/v1/commonapi/IPC.hpp \
+    $$INCLUDEPATH/v1/commonapi/IPCProxyBase.hpp \
+    $$INCLUDEPATH/v1/commonapi/IPCProxy.hpp \
+    $$INCLUDEPATH/v1/commonapi/IPCStubDefault.hpp \
+    $$INCLUDEPATH/v1/commonapi/IPCStub.hpp \
+
 
 DISTFILES +=
 
@@ -49,5 +63,5 @@ win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../Server/libraries/dbu
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../Server/libraries/dbus-1.10.10/dbus/.libs/debug/ -ldbus-1
 else:unix: LIBS += -L$$PWD/../../Server/libraries/dbus-1.10.10/dbus/.libs/ -ldbus-1
 
-INCLUDEPATH += $$PWD/../../Server/libraries/dbus-1.10.10/dbus
-DEPENDPATH += $$PWD/../../Server/libraries/dbus-1.10.10/dbus
+INCLUDEPATH += $$PWD/../../Server/libraries/dbus-1.10.10
+DEPENDPATH += $$PWD/../../Server/libraries/dbus-1.10.10
