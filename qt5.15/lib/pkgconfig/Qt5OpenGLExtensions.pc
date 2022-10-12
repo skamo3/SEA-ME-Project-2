@@ -1,0 +1,14 @@
+prefix=/home/seame-four/rpi/qt5.15
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Qt5 OpenGLExtensions
+Description: Qt OpenGLExtensions module
+Version: 5.15.0
+Libs: -L${libdir} -lQt5OpenGLExtensions 
+Libs.private: /home/seame-four/rpi/qt5.15/lib/libQt5Gui.so /home/seame-four/rpi/qt5.15/lib/libQt5Core.so -lpthread -L/home/seame-four/rpi/sysroot/usr/lib/arm-linux-gnueabihf -lGLESv2   
+Cflags: -DQT_OPENGLEXTENSIONS_LIB -I${includedir}/QtOpenGLExtensions -I${includedir}
+Requires: Qt5Core Qt5Gui
+

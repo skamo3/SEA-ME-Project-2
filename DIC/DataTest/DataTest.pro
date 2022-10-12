@@ -8,13 +8,12 @@ _ROOT = $$_PRO_FILE_PWD_
 INCLUDEPATH += $$_ROOT/../../Server/src-gen
 
 SOURCES += \
+        datacontroller.cpp \
         main.cpp
-        src-gen/v1/commonapi/IPCDBusDeployment.cpp \
-        src-gen/v1/commonapi/IPCDBusProxy.cpp \
-        src-gen/v1/commonapi/IPCDBusStubAdapter.cpp \
-        src-gen/v1/commonapi/IPCStubDefault.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    components/components.qrc \
+    images/images.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -26,3 +25,29 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+    datacontroller.h
+
+DISTFILES +=
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../Server/libraries/capicxx-core-runtime/build/release/ -lCommonAPI
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../Server/libraries/capicxx-core-runtime/build/debug/ -lCommonAPI
+else:unix: LIBS += -L$$PWD/../../Server/libraries/capicxx-core-runtime/build/ -lCommonAPI
+
+INCLUDEPATH += $$PWD/../../Server/libraries/capicxx-core-runtime/include
+DEPENDPATH += $$PWD/../../Server/libraries/capicxx-core-runtime/include
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../Server/libraries/capicxx-dbus-runtime/build/release/ -lCommonAPI-DBus
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../Server/libraries/capicxx-dbus-runtime/build/debug/ -lCommonAPI-DBus
+else:unix: LIBS += -L$$PWD/../../Server/libraries/capicxx-dbus-runtime/build/ -lCommonAPI-DBus
+
+INCLUDEPATH += $$PWD/../../Server/libraries/capicxx-dbus-runtime/include
+DEPENDPATH += $$PWD/../../Server/libraries/capicxx-dbus-runtime/include
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../Server/libraries/dbus-1.10.10/dbus/.libs/release/ -ldbus-1
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../Server/libraries/dbus-1.10.10/dbus/.libs/debug/ -ldbus-1
+else:unix: LIBS += -L$$PWD/../../Server/libraries/dbus-1.10.10/dbus/.libs/ -ldbus-1
+
+INCLUDEPATH += $$PWD/../../Server/libraries/dbus-1.10.10/dbus
+DEPENDPATH += $$PWD/../../Server/libraries/dbus-1.10.10/dbus

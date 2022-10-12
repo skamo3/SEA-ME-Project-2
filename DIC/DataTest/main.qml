@@ -1,9 +1,16 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
+import "qrc:/components"
 
 Window {
-    width: 640
-    height: 480
+    width: 1024
+    height: 600
     visible: true
-    title: qsTr("Hello World")
+    //title: qsTr("Data Test")
+    BackGround {
+
+    }
+    DataArea {
+
+    }
 }

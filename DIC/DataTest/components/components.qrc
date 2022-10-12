@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/components">
+        <file>BackGround.qml</file>
+        <file>DataArea.qml</file>
+    </qresource>
+</RCC>

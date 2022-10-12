@@ -1,0 +1,14 @@
+prefix=/home/seame-four/rpi/qt5.15
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Qt5 UiTools
+Description: Qt UiTools module
+Version: 5.15.0
+Libs: -L${libdir} -lQt5UiTools 
+Libs.private: /home/seame-four/rpi/qt5.15/lib/libQt5Widgets.so /home/seame-four/rpi/qt5.15/lib/libQt5Gui.so /home/seame-four/rpi/qt5.15/lib/libQt5Core.so -lpthread /home/seame-four/rpi/qt5.15/lib/libQt5Widgets.so /home/seame-four/rpi/qt5.15/lib/libQt5Gui.so /home/seame-four/rpi/qt5.15/lib/libQt5Core.so -L/home/seame-four/rpi/sysroot/usr/lib/arm-linux-gnueabihf -lGLESv2   
+Cflags: -DQT_UITOOLS_LIB -I${includedir}/QtUiTools -I${includedir}
+Requires: Qt5Core Qt5Gui Qt5Widgets
+

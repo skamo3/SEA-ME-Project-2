@@ -1,0 +1,25 @@
+QT.core_private.VERSION = 5.15.0
+QT.core_private.name = QtCore
+QT.core_private.module =
+QT.core_private.libs = $$QT_MODULE_LIB_BASE
+QT.core_private.includes = $$QT_MODULE_INCLUDE_BASE/QtCore/5.15.0 $$QT_MODULE_INCLUDE_BASE/QtCore/5.15.0/QtCore
+QT.core_private.frameworks =
+QT.core_private.depends = core
+QT.core_private.uses =
+QT.core_private.module_config = v2 internal_module
+QT.core_private.enabled_features = clock-gettime datetimeparser doubleconversion futimens getauxval getentropy glib glibc posix-libiconv hijricalendar icu inotify linkat mimetype-database poll_ppoll system-pcre2 renameat2 sha3-fast statx system-doubleconversion
+QT.core_private.disabled_features = etw futimes gnu-libiconv iconv journald lttng poll_poll poll_pollts poll_select slog2 syslog
+QMAKE_INCDIR_GLIB = /home/seame-four/rpi/sysroot/usr/include/glib-2.0 /home/seame-four/rpi/sysroot/usr/lib/arm-linux-gnueabihf/glib-2.0/include
+QMAKE_DEPENDS_ICU_CC = LIBDL
+QMAKE_DEPENDS_ICU_LD = LIBDL
+QMAKE_DEPENDS_PCRE2_CC = 
+QMAKE_DEPENDS_PCRE2_LD = 
+QMAKE_DEFINES_PCRE2 = PCRE2_CODE_UNIT_WIDTH=16
+QMAKE_INCDIR_PCRE2 = /home/seame-four/rpi/qt-everywhere-src-5.15.0/qtbase/src/3rdparty/pcre2/src
+QMAKE_LIBS_LIBRT = 
+QMAKE_LIBS_GLIB = -L/home/seame-four/rpi/sysroot/usr/lib/arm-linux-gnueabihf -lgthread-2.0 -lglib-2.0
+QMAKE_LIBS_ICONV = 
+QMAKE_LIBS_ICU = -licui18n -licuuc -licudata
+QMAKE_LIBS_PCRE2 = -L/home/seame-four/rpi/sysroot/usr/lib/arm-linux-gnueabihf -lpcre2-16
+QMAKE_LIBS_LIBATOMIC = 
+QMAKE_LIBS_DOUBLECONVERSION = -ldouble-conversion
