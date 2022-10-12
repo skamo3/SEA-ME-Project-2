@@ -48,7 +48,7 @@ add_library(CommonAPI-DBus SHARED IMPORTED)
 set_property(TARGET CommonAPI-DBus APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(CommonAPI-DBus PROPERTIES
   IMPORTED_LINK_INTERFACE_LIBRARIES_DEBUG "CommonAPI;dbus-1"
-  IMPORTED_LOCATION_DEBUG "/home/pi-chan/commonapi/capicxx-dbus-runtime/build/libCommonAPI-DBus.so.3.1.12"
+  IMPORTED_LOCATION_DEBUG "/home/pi-chan/workspace/Server/libraries/capicxx-dbus-runtime/build/libCommonAPI-DBus.so.3.1.12"
   IMPORTED_SONAME_DEBUG "libCommonAPI-DBus.so.3.1.12"
   )
 

@@ -1,5 +1,5 @@
-abs_top_builddir=/home/pi-chan/commonapi/dbus-1.10.10
-abs_top_srcdir=/home/pi-chan/commonapi/dbus-1.10.10
+abs_top_builddir=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10
+abs_top_srcdir=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10
 prefix=
 exec_prefix=
 bindir=${exec_prefix}/bin

@@ -28,6 +28,8 @@ uname -v = #1591 SMP Wed Oct 5 12:05:33 BST 2022
 /bin/universe          = unknown
 
 PATH: /home/pi-chan/env/bin
+PATH: /home/pi-chan/.vscode-server/bin/784b0177c56c607789f9638da7b6bf3230d47a8c/bin/remote-cli
+PATH: /home/pi-chan/env/bin
 PATH: /usr/local/sbin
 PATH: /usr/local/bin
 PATH: /usr/sbin
@@ -36,6 +38,7 @@ PATH: /sbin
 PATH: /bin
 PATH: /usr/local/games
 PATH: /usr/games
+PATH: /usr/local/jdk1.8.0_321/bin
 
 
 ## ----------- ##
@@ -1250,8 +1253,8 @@ configure:15235: $? = 0
 configure:15235: result: yes
 configure:15235: checking for issetugid
 configure:15235: gcc -o conftest -g -O2   conftest.c  >&5
-/usr/bin/ld: /tmp/ccwAjktk.o: in function `main':
-/home/pi-chan/commonapi/dbus-1.10.10/conftest.c:100: undefined reference to `issetugid'
+/usr/bin/ld: /tmp/ccUHtKfU.o: in function `main':
+/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/conftest.c:100: undefined reference to `issetugid'
 collect2: error: ld returned 1 exit status
 configure:15235: $? = 1
 configure: failed program was:
@@ -2327,8 +2330,8 @@ configure: failed program was:
 configure:15924: result: no
 configure:15936: checking for getpeerucred
 configure:15936: gcc -o conftest -g -O2   conftest.c  >&5
-/usr/bin/ld: /tmp/ccaKXmp0.o: in function `main':
-/home/pi-chan/commonapi/dbus-1.10.10/conftest.c:127: undefined reference to `getpeerucred'
+/usr/bin/ld: /tmp/cc4nZhtX.o: in function `main':
+/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/conftest.c:127: undefined reference to `getpeerucred'
 collect2: error: ld returned 1 exit status
 configure:15936: $? = 1
 configure: failed program was:
@@ -2465,8 +2468,8 @@ configure: failed program was:
 configure:15936: result: no
 configure:15936: checking for getpeereid
 configure:15936: gcc -o conftest -g -O2   conftest.c  >&5
-/usr/bin/ld: /tmp/ccrCmrNk.o: in function `main':
-/home/pi-chan/commonapi/dbus-1.10.10/conftest.c:127: undefined reference to `getpeereid'
+/usr/bin/ld: /tmp/ccRKVIVj.o: in function `main':
+/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/conftest.c:127: undefined reference to `getpeereid'
 collect2: error: ld returned 1 exit status
 configure:15936: $? = 1
 configure: failed program was:
@@ -2635,8 +2638,8 @@ configure:16191: $? = 0
 configure:16208: result: none required
 configure:16218: checking for library containing pthread_mutexattr_init
 configure:16249: gcc -o conftest -g -O2   conftest.c   >&5
-/usr/bin/ld: /tmp/cccLpNrl.o: in function `main':
-/home/pi-chan/commonapi/dbus-1.10.10/conftest.c:108: undefined reference to `pthread_mutexattr_init'
+/usr/bin/ld: /tmp/ccKHs7O7.o: in function `main':
+/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/conftest.c:108: undefined reference to `pthread_mutexattr_init'
 collect2: error: ld returned 1 exit status
 configure:16249: $? = 1
 configure: failed program was:
@@ -2791,8 +2794,8 @@ configure:16564: $? = 0
 configure:16570: result: yes
 configure:16598: checking for pthread_create
 configure:16598: gcc -o conftest -g -O2   conftest.c  >&5
-/usr/bin/ld: /tmp/cc3Cudth.o: in function `main':
-/home/pi-chan/commonapi/dbus-1.10.10/conftest.c:132: undefined reference to `pthread_create'
+/usr/bin/ld: /tmp/cc41XbnS.o: in function `main':
+/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/conftest.c:132: undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
 configure:16598: $? = 1
 configure: failed program was:
@@ -3231,8 +3234,8 @@ configure:16851: checking for sys/event.h
 configure:16851: result: no
 configure:16859: checking for kqueue
 configure:16859: gcc -o conftest -g -O2   conftest.c  >&5
-/usr/bin/ld: /tmp/ccc4yRtv.o: in function `main':
-/home/pi-chan/commonapi/dbus-1.10.10/conftest.c:137: undefined reference to `kqueue'
+/usr/bin/ld: /tmp/ccWbusbc.o: in function `main':
+/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/conftest.c:137: undefined reference to `kqueue'
 collect2: error: ld returned 1 exit status
 configure:16859: $? = 1
 configure: failed program was:
@@ -4212,10 +4215,10 @@ configure: failed program was:
 | #define DBUS_DAEMONDIR "/usr/local/bin"
 | #define DBUS_BINDIR "/usr/local/bin"
 | #define DBUS_LIBEXECDIR "/usr/local/libexec"
-| #define DBUS_TEST_EXEC "/home/pi-chan/commonapi/dbus-1.10.10/test"
+| #define DBUS_TEST_EXEC "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test"
 | #define DBUS_EXEEXT ""
-| #define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/tools/dbus-launch"
-| #define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
+| #define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/tools/dbus-launch"
+| #define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
 | #define DBUS_TEST_SOCKET_DIR "/tmp"
 | #define TEST_LISTEN "unix:tmpdir=/tmp"
 | #define DBUS_SESSION_SOCKET_DIR "/tmp"
@@ -4379,10 +4382,10 @@ configure: failed program was:
 | #define DBUS_DAEMONDIR "/usr/local/bin"
 | #define DBUS_BINDIR "/usr/local/bin"
 | #define DBUS_LIBEXECDIR "/usr/local/libexec"
-| #define DBUS_TEST_EXEC "/home/pi-chan/commonapi/dbus-1.10.10/test"
+| #define DBUS_TEST_EXEC "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test"
 | #define DBUS_EXEEXT ""
-| #define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/tools/dbus-launch"
-| #define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
+| #define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/tools/dbus-launch"
+| #define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
 | #define DBUS_TEST_SOCKET_DIR "/tmp"
 | #define TEST_LISTEN "unix:tmpdir=/tmp"
 | #define DBUS_SESSION_SOCKET_DIR "/tmp"
@@ -4394,8 +4397,8 @@ configure:19770: checking for crt_externs.h
 configure:19770: result: no
 configure:19780: checking for _NSGetEnviron
 configure:19780: gcc -o conftest  -Wall -Wextra -Wchar-subscripts -Wmissing-declarations -Wmissing-prototypes -Wnested-externs -Wpointer-arith -Wcast-align -Wno-address -Wfloat-equal -Wdeclaration-after-statement -Wno-unused-label -Wno-missing-field-initializers -Wno-unused-parameter -Wno-pointer-sign -Wno-type-limits -fno-common -fno-strict-aliasing -g -O2   conftest.c  >&5
-/usr/bin/ld: /tmp/cc6A9Irh.o: in function `main':
-/home/pi-chan/commonapi/dbus-1.10.10/conftest.c:159: undefined reference to `_NSGetEnviron'
+/usr/bin/ld: /tmp/ccarx1eO.o: in function `main':
+/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/conftest.c:159: undefined reference to `_NSGetEnviron'
 collect2: error: ld returned 1 exit status
 configure:19780: $? = 1
 configure: failed program was:
@@ -4514,10 +4517,10 @@ configure: failed program was:
 | #define DBUS_DAEMONDIR "/usr/local/bin"
 | #define DBUS_BINDIR "/usr/local/bin"
 | #define DBUS_LIBEXECDIR "/usr/local/libexec"
-| #define DBUS_TEST_EXEC "/home/pi-chan/commonapi/dbus-1.10.10/test"
+| #define DBUS_TEST_EXEC "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test"
 | #define DBUS_EXEEXT ""
-| #define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/tools/dbus-launch"
-| #define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
+| #define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/tools/dbus-launch"
+| #define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
 | #define DBUS_TEST_SOCKET_DIR "/tmp"
 | #define TEST_LISTEN "unix:tmpdir=/tmp"
 | #define DBUS_SESSION_SOCKET_DIR "/tmp"
@@ -4865,7 +4868,7 @@ pkg_cv_GLIB_LIBS='-lgio-2.0 -lgobject-2.0 -lglib-2.0'
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing aclocal-1.15'
+ACLOCAL='${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing aclocal-1.15'
 ADT_LIBS=''
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
@@ -4878,9 +4881,9 @@ AM_V='$(V)'
 APPARMOR_CFLAGS=''
 APPARMOR_LIBS=''
 AR='ar'
-AUTOCONF='${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing autoconf'
-AUTOHEADER='${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing autoheader'
-AUTOMAKE='${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing automake-1.15'
+AUTOCONF='${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing autoconf'
+AUTOHEADER='${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing autoheader'
+AUTOMAKE='${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing automake-1.15'
 AWK='mawk'
 BUILD_FILEVERSION=''
 BUILD_TIMESTAMP=''
@@ -4949,8 +4952,8 @@ DBUS_STATIC_BUILD_CPPFLAGS=''
 DBUS_SYSTEM_BUS_DEFAULT_ADDRESS='unix:path=/usr/local/var/run/dbus/system_bus_socket'
 DBUS_SYSTEM_PID_FILE='/usr/local/var/run/dbus/pid'
 DBUS_SYSTEM_SOCKET='/usr/local/var/run/dbus/system_bus_socket'
-DBUS_TEST_DATA='/home/pi-chan/commonapi/dbus-1.10.10/test/data'
-DBUS_TEST_EXEC='/home/pi-chan/commonapi/dbus-1.10.10/test'
+DBUS_TEST_DATA='/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test/data'
+DBUS_TEST_EXEC='/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test'
 DBUS_TEST_USER='nobody'
 DBUS_UINT64_CONSTANT='(val##ULL)'
 DBUS_UNIX_FALSE='#'
@@ -5028,7 +5031,7 @@ LT_SYS_LIBRARY_PATH=''
 MAINT=''
 MAINTAINER_MODE_FALSE='#'
 MAINTAINER_MODE_TRUE=''
-MAKEINFO='${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing makeinfo'
+MAKEINFO='${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing makeinfo'
 MANIFEST_TOOL=':'
 MKDIR_P='/usr/bin/mkdir -p'
 NETWORK_libs=''
@@ -5065,7 +5068,7 @@ SYSCONFDIR_FROM_PKGDATADIR='/usr/local/etc'
 SYSTEMCTL='/usr/bin/systemctl'
 SYSTEMD_CFLAGS=''
 SYSTEMD_LIBS=''
-TEST_LAUNCH_HELPER_BINARY='/home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon-launch-helper-test'
+TEST_LAUNCH_HELPER_BINARY='/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon-launch-helper-test'
 TEST_LISTEN='unix:tmpdir=/tmp'
 TEST_SOCKET_DIR='/tmp'
 THREAD_LIBS='-lpthread  '
@@ -5120,7 +5123,7 @@ host_vendor='unknown'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/install-sh'
+install_sh='${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'
@@ -5263,10 +5266,10 @@ target_alias=''
 #define DBUS_DAEMONDIR "/usr/local/bin"
 #define DBUS_BINDIR "/usr/local/bin"
 #define DBUS_LIBEXECDIR "/usr/local/libexec"
-#define DBUS_TEST_EXEC "/home/pi-chan/commonapi/dbus-1.10.10/test"
+#define DBUS_TEST_EXEC "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test"
 #define DBUS_EXEEXT ""
-#define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/tools/dbus-launch"
-#define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
+#define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/tools/dbus-launch"
+#define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
 #define DBUS_TEST_SOCKET_DIR "/tmp"
 #define TEST_LISTEN "unix:tmpdir=/tmp"
 #define DBUS_SESSION_SOCKET_DIR "/tmp"

@@ -278,16 +278,16 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing aclocal-1.15
 ADT_LIBS = 
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 APPARMOR_CFLAGS = 
 APPARMOR_LIBS = 
 AR = ar
-AUTOCONF = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing automake-1.15
+AUTOCONF = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing automake-1.15
 AWK = mawk
 BUILD_FILEVERSION = 
 BUILD_TIMESTAMP = 
@@ -326,8 +326,8 @@ DBUS_STATIC_BUILD_CPPFLAGS =
 DBUS_SYSTEM_BUS_DEFAULT_ADDRESS = unix:path=/usr/local/var/run/dbus/system_bus_socket
 DBUS_SYSTEM_PID_FILE = /usr/local/var/run/dbus/pid
 DBUS_SYSTEM_SOCKET = /usr/local/var/run/dbus/system_bus_socket
-DBUS_TEST_DATA = /home/pi-chan/commonapi/dbus-1.10.10/test/data
-DBUS_TEST_EXEC = /home/pi-chan/commonapi/dbus-1.10.10/test
+DBUS_TEST_DATA = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test/data
+DBUS_TEST_EXEC = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test
 DBUS_TEST_USER = nobody
 DBUS_UINT64_CONSTANT = (val##ULL)
 DBUS_USER = messagebus
@@ -380,7 +380,7 @@ LT_CURRENT = 17
 LT_REVISION = 7
 LT_SYS_LIBRARY_PATH = 
 MAINT = 
-MAKEINFO = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NETWORK_libs = 
@@ -417,7 +417,7 @@ SYSCONFDIR_FROM_PKGDATADIR = /usr/local/etc
 SYSTEMCTL = /usr/bin/systemctl
 SYSTEMD_CFLAGS = 
 SYSTEMD_LIBS = 
-TEST_LAUNCH_HELPER_BINARY = /home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon-launch-helper-test
+TEST_LAUNCH_HELPER_BINARY = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon-launch-helper-test
 TEST_LISTEN = unix:tmpdir=/tmp
 TEST_SOCKET_DIR = /tmp
 THREAD_LIBS = -lpthread  
@@ -435,10 +435,10 @@ X_EXTRA_LIBS =
 X_LIBS = 
 X_PRE_LIBS =  -lSM -lICE
 YELP_BUILD = no
-abs_builddir = /home/pi-chan/commonapi/dbus-1.10.10
-abs_srcdir = /home/pi-chan/commonapi/dbus-1.10.10
-abs_top_builddir = /home/pi-chan/commonapi/dbus-1.10.10
-abs_top_srcdir = /home/pi-chan/commonapi/dbus-1.10.10
+abs_builddir = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10
+abs_srcdir = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10
+abs_top_builddir = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10
+abs_top_srcdir = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -469,7 +469,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/install-sh
+install_sh = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -1052,18 +1052,18 @@ update-authors:
 	git shortlog -s -e | cut -c 8- | sort > AUTHORS
 
 lcov-reset:
-	lcov --directory /home/pi-chan/commonapi/dbus-1.10.10 --zerocounters
+	lcov --directory /home/pi-chan/workspace/Server/libraries/dbus-1.10.10 --zerocounters
 
 lcov-report:
-	lcov --directory /home/pi-chan/commonapi/dbus-1.10.10 --capture \
-		--output-file /home/pi-chan/commonapi/dbus-1.10.10/lcov.info
-	$(mkdir_p) /home/pi-chan/commonapi/dbus-1.10.10/lcov.html
-	git_commit=`GIT_DIR=/home/pi-chan/commonapi/dbus-1.10.10/.git git log -1 --pretty=format:%h 2>/dev/null`;\
+	lcov --directory /home/pi-chan/workspace/Server/libraries/dbus-1.10.10 --capture \
+		--output-file /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/lcov.info
+	$(mkdir_p) /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/lcov.html
+	git_commit=`GIT_DIR=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/.git git log -1 --pretty=format:%h 2>/dev/null`;\
 	genhtml --title "dbus 1.10.10 $$git_commit" \
-		--output-directory /home/pi-chan/commonapi/dbus-1.10.10/lcov.html lcov.info
+		--output-directory /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/lcov.html lcov.info
 	@echo
 	@echo 'lcov report can be found in:'
-	@echo 'file:///home/pi-chan/commonapi/dbus-1.10.10/lcov.html/index.html'
+	@echo 'file:///home/pi-chan/workspace/Server/libraries/dbus-1.10.10/lcov.html/index.html'
 	@echo
 
 lcov-check:

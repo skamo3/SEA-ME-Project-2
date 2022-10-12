@@ -1,4 +1,4 @@
 [D-BUS Service]
 Name=org.freedesktop.DBus.TestSuite.PrivServer
-Exec=/home/pi-chan/commonapi/dbus-1.10.10/test/name-test/test-privserver
+Exec=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test/name-test/test-privserver
 

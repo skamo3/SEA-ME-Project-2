@@ -95,10 +95,10 @@
 #define DBUS_SYSTEM_SOCKET "/usr/local/var/run/dbus/system_bus_socket"
 
 /* Full path to the daemon in the builddir */
-#define DBUS_TEST_EXEC "/home/pi-chan/commonapi/dbus-1.10.10/test"
+#define DBUS_TEST_EXEC "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test"
 
 /* Full path to the launch helper test program in the builddir */
-#define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
+#define DBUS_TEST_LAUNCH_HELPER_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon-launch-helper-test"
 
 /* Where to put test sockets */
 #define DBUS_TEST_SOCKET_DIR "/tmp"
@@ -431,7 +431,7 @@
 #define STDC_HEADERS 1
 
 /* Full path to the dbus-launch in the builddir */
-#define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/commonapi/dbus-1.10.10/tools/dbus-launch"
+#define TEST_BUS_LAUNCH_BINARY "/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/tools/dbus-launch"
 
 /* Listening address for regression tests */
 #define TEST_LISTEN "unix:tmpdir=/tmp"

@@ -17,7 +17,7 @@ link_directories(
 # Client execute file add
 add_executable(IPCClient
 	src-gen/v1/commonapi/IPCDBusProxy.cpp
-	src-gen/v1/commonapi/IPCDBusDeployment
+	src-gen/v1/commonapi/IPCDBusDeployment.cpp
 	srcs/IPCClient.cpp
 
 	# libraries/src-gen/v1/commonapi/HelloWorldDBusProxy.cpp
@@ -29,8 +29,8 @@ target_link_libraries(IPCClient CommonAPI CommonAPI-DBus dbus-1)
 # Server execute file add 
 add_executable(IPCService
 	src-gen/v1/commonapi/IPCDBusStubAdapter.cpp
-	src-gen/v1/commonapi/IPCStubDefault
-	src-gen/v1/commonapi/IPCDBusDeployment
+	src-gen/v1/commonapi/IPCStubDefault.cpp
+	src-gen/v1/commonapi/IPCDBusDeployment.cpp
 	srcs/CANSocket.cpp
 	srcs/utils.cpp
 	srcs/IPCServer.cpp

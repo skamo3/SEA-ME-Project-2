@@ -1,5 +1,5 @@
 [D-BUS Service]
 Name=org.freedesktop.DBus.TestSuiteSegfaultService
-Exec=/home/pi-chan/commonapi/dbus-1.10.10/test/test-segfault
+Exec=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test/test-segfault
 User=anyrandomuser
 

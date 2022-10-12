@@ -634,16 +634,16 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing aclocal-1.15
 ADT_LIBS = 
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 APPARMOR_CFLAGS = 
 APPARMOR_LIBS = 
 AR = ar
-AUTOCONF = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing automake-1.15
+AUTOCONF = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing automake-1.15
 AWK = mawk
 BUILD_FILEVERSION = 
 BUILD_TIMESTAMP = 
@@ -682,8 +682,8 @@ DBUS_STATIC_BUILD_CPPFLAGS =
 DBUS_SYSTEM_BUS_DEFAULT_ADDRESS = unix:path=/usr/local/var/run/dbus/system_bus_socket
 DBUS_SYSTEM_PID_FILE = /usr/local/var/run/dbus/pid
 DBUS_SYSTEM_SOCKET = /usr/local/var/run/dbus/system_bus_socket
-DBUS_TEST_DATA = /home/pi-chan/commonapi/dbus-1.10.10/test/data
-DBUS_TEST_EXEC = /home/pi-chan/commonapi/dbus-1.10.10/test
+DBUS_TEST_DATA = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test/data
+DBUS_TEST_EXEC = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test
 DBUS_TEST_USER = nobody
 DBUS_UINT64_CONSTANT = (val##ULL)
 DBUS_USER = messagebus
@@ -736,7 +736,7 @@ LT_CURRENT = 17
 LT_REVISION = 7
 LT_SYS_LIBRARY_PATH = 
 MAINT = 
-MAKEINFO = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /usr/bin/mkdir -p
 NETWORK_libs = 
@@ -773,7 +773,7 @@ SYSCONFDIR_FROM_PKGDATADIR = /usr/local/etc
 SYSTEMCTL = /usr/bin/systemctl
 SYSTEMD_CFLAGS = 
 SYSTEMD_LIBS = 
-TEST_LAUNCH_HELPER_BINARY = /home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon-launch-helper-test
+TEST_LAUNCH_HELPER_BINARY = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon-launch-helper-test
 TEST_LISTEN = unix:tmpdir=/tmp
 TEST_SOCKET_DIR = /tmp
 THREAD_LIBS = -lpthread  
@@ -791,10 +791,10 @@ X_EXTRA_LIBS =
 X_LIBS = 
 X_PRE_LIBS =  -lSM -lICE
 YELP_BUILD = no
-abs_builddir = /home/pi-chan/commonapi/dbus-1.10.10/test
-abs_srcdir = /home/pi-chan/commonapi/dbus-1.10.10/test
-abs_top_builddir = /home/pi-chan/commonapi/dbus-1.10.10
-abs_top_srcdir = /home/pi-chan/commonapi/dbus-1.10.10
+abs_builddir = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test
+abs_srcdir = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test
+abs_top_builddir = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10
+abs_top_srcdir = /home/pi-chan/workspace/Server/libraries/dbus-1.10.10
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -825,7 +825,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/pi-chan/commonapi/dbus-1.10.10/build-aux/install-sh
+install_sh = ${SHELL} /home/pi-chan/workspace/Server/libraries/dbus-1.10.10/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -936,24 +936,24 @@ installable_test_meta_with_config = \
 
 installcheck_tests = $(dist_installable_test_scripts) $(am__append_12)
 installcheck_environment = \
-	export XDG_RUNTIME_DIR=/home/pi-chan/commonapi/dbus-1.10.10/test/XDG_RUNTIME_DIR; \
+	export XDG_RUNTIME_DIR=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test/XDG_RUNTIME_DIR; \
 	export DBUS_TEST_DAEMON=$(DESTDIR)$(DBUS_DAEMONDIR)/dbus-daemon$(EXEEXT); \
 	export DBUS_TEST_DBUS_LAUNCH=$(DESTDIR)$(bindir)/dbus-launch$(EXEEXT); \
 	export DBUS_TEST_DBUS_MONITOR=$(DESTDIR)$(bindir)/dbus-monitor$(EXEEXT); \
 	export DBUS_TEST_DBUS_SEND=$(DESTDIR)$(bindir)/dbus-send$(EXEEXT); \
-	export DBUS_TEST_HOMEDIR=/home/pi-chan/commonapi/dbus-1.10.10/dbus; \
+	export DBUS_TEST_HOMEDIR=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/dbus; \
 	export DBUS_TEST_DATADIR=$(DESTDIR)$(datadir); \
 	${NULL}
 
 AM_TESTS_ENVIRONMENT = \
-	export XDG_RUNTIME_DIR=/home/pi-chan/commonapi/dbus-1.10.10/test/XDG_RUNTIME_DIR; \
+	export XDG_RUNTIME_DIR=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test/XDG_RUNTIME_DIR; \
 	export DBUS_FATAL_WARNINGS=1; \
-	export DBUS_TEST_DAEMON=/home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon$(EXEEXT); \
-	export DBUS_TEST_DBUS_LAUNCH=/home/pi-chan/commonapi/dbus-1.10.10/tools/dbus-launch$(EXEEXT); \
-	export DBUS_TEST_DBUS_MONITOR=/home/pi-chan/commonapi/dbus-1.10.10/tools/dbus-monitor$(EXEEXT); \
-	export DBUS_TEST_DBUS_SEND=/home/pi-chan/commonapi/dbus-1.10.10/tools/dbus-send$(EXEEXT); \
-	export DBUS_TEST_DATA=/home/pi-chan/commonapi/dbus-1.10.10/test/data; \
-	export DBUS_TEST_HOMEDIR=/home/pi-chan/commonapi/dbus-1.10.10/dbus; \
+	export DBUS_TEST_DAEMON=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon$(EXEEXT); \
+	export DBUS_TEST_DBUS_LAUNCH=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/tools/dbus-launch$(EXEEXT); \
+	export DBUS_TEST_DBUS_MONITOR=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/tools/dbus-monitor$(EXEEXT); \
+	export DBUS_TEST_DBUS_SEND=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/tools/dbus-send$(EXEEXT); \
+	export DBUS_TEST_DATA=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test/data; \
+	export DBUS_TEST_HOMEDIR=/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/dbus; \
 	$(NULL)
 
 manual_authz_SOURCES = manual-authz.c
@@ -2092,10 +2092,10 @@ uninstalled-config-local:
 	for F in $(in_data); do \
 		$(MKDIR_P) "$${F%/*}"; \
 		sed \
-			-e 's,[@]DBUS_TEST_DATA[@],/home/pi-chan/commonapi/dbus-1.10.10/test/data,' \
-			-e 's,[@]DBUS_TEST_EXEC[@],/home/pi-chan/commonapi/dbus-1.10.10/test,' \
+			-e 's,[@]DBUS_TEST_DATA[@],/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test/data,' \
+			-e 's,[@]DBUS_TEST_EXEC[@],/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/test,' \
 			-e 's,[@]EXEEXT[@],$(EXEEXT),' \
-			-e 's,[@]TEST_LAUNCH_HELPER_BINARY[@],/home/pi-chan/commonapi/dbus-1.10.10/bus/dbus-daemon-launch-helper-test$(EXEEXT),' \
+			-e 's,[@]TEST_LAUNCH_HELPER_BINARY[@],/home/pi-chan/workspace/Server/libraries/dbus-1.10.10/bus/dbus-daemon-launch-helper-test$(EXEEXT),' \
 			-e 's,[@]TEST_LISTEN[@],$(TEST_LISTEN),' \
 			< $(srcdir)/"$$F" > "$${F%.in}"; \
 	done

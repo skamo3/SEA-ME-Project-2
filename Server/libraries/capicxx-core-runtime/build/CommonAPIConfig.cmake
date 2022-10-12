@@ -4,7 +4,7 @@
 
 # Compute paths
 get_filename_component(COMMONAPI_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
-set(COMMONAPI_INCLUDE_DIRS "/home/pi-chan/commonapi/capicxx-core-runtime/include")
+set(COMMONAPI_INCLUDE_DIRS "/home/pi-chan/workspace/Server/libraries/capicxx-core-runtime/include")
 
 # Our library dependencies (contains definitions for IMPORTED targets)
 include("${COMMONAPI_CMAKE_DIR}/CommonAPITargets.cmake")

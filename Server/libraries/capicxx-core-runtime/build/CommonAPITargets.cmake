@@ -47,7 +47,7 @@ add_library(CommonAPI SHARED IMPORTED)
 # Import target "CommonAPI" for configuration "RelWithDebInfo"
 set_property(TARGET CommonAPI APPEND PROPERTY IMPORTED_CONFIGURATIONS RELWITHDEBINFO)
 set_target_properties(CommonAPI PROPERTIES
-  IMPORTED_LOCATION_RELWITHDEBINFO "/home/pi-chan/commonapi/capicxx-core-runtime/build/libCommonAPI.so.3.1.12"
+  IMPORTED_LOCATION_RELWITHDEBINFO "/home/pi-chan/workspace/Server/libraries/capicxx-core-runtime/build/libCommonAPI.so.3.1.12"
   IMPORTED_SONAME_RELWITHDEBINFO "libCommonAPI.so.3.1.12"
   )
 

@@ -4,7 +4,7 @@
 
 # Compute paths
 get_filename_component(COMMONAPI_DBUS_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
-set(COMMONAPI_DBUS_INCLUDE_DIRS "/home/pi-chan/commonapi/capicxx-dbus-runtime/include")
+set(COMMONAPI_DBUS_INCLUDE_DIRS "/home/pi-chan/workspace/Server/libraries/capicxx-dbus-runtime/include")
 
 # Our library dependencies (contains definitions for IMPORTED targets)
 include("${COMMONAPI_DBUS_CMAKE_DIR}/CommonAPI-DBusTargets.cmake")
