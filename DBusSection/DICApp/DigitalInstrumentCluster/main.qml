@@ -9,4 +9,7 @@ Window {
     BackGround {
 
     }
+    DataArea {
+
+    }
 }
