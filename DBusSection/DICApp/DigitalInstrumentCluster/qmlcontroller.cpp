@@ -17,21 +17,14 @@ void QmlController::getData()
     qDebug() << "It's here!!";
     qDebug() << "test: " << dataManager->isValid();
     QDBusPendingReply<QString> reply =  dataManager->dataShare();
-    if (reply.isValid())
+    if (!reply.isError())
     {
-        QString ret = dataManager->dataShare();
-        qDebug() << "data recieved : " << ret;
-        printable = ret;
+        qDebug() << "data recieved : " << reply.value();
+        printable = reply.value();
     } else {
         qDebug() << "reply is not valid";
         qDebug() << reply.error();
     }
-
-    qDebug() << "count : " << reply.count();
-
-    QString ret = dataManager->dataShare();
-    qDebug() << "data recieved : " << ret;
-
 
     emit valueChanged();
 }

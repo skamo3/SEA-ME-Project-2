@@ -19,5 +19,5 @@ void DataManager::updateData()
 QString DataManager::dataShare()
 {
     qDebug() << "Data Sending";
-    return QString("return test");
+    return QString("Data share test success");
 }

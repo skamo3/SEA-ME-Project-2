@@ -27,13 +27,9 @@ int main(int argc, char *argv[])
         exit(1);
     }
     qDebug() << "Server open";
+    qDebug() << connection.name();
+    qDebug() << connection.baseService();
 
-    while (1)
-    {
-//        dataManager.updateData();
-        qDebug() << "Server test";
-        QThread::sleep(1);
-    }
 
 
     return a.exec();

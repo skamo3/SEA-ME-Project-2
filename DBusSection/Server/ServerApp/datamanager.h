@@ -27,7 +27,7 @@ private:
 signals:
 
 public slots:
-    Q_SCRIPTABLE QString dataShare();
+    QString dataShare();
 
 };
 
