@@ -18,7 +18,6 @@ public:
 
 private:
     struct Data sensorData;
-    class CANSocket *canSocket;
 
 signals:
 
