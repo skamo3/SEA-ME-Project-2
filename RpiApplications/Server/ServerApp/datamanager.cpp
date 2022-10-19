@@ -1,23 +1,38 @@
-#include "cansocket.h"
 #include "datamanager.h"
 #include <QDebug>
 #include "datamanager_adaptor.h"
 
-DataManager::DataManager(const QString &ifname, QObject *parent)
-    : QObject{parent}, canSocket(new CANSocket)
+DataManager::DataManager(QObject *parent)
+    : QObject{parent}
 {
-//    canSocket->initSocket(ifname);
     new DataManagerAdaptor(this);
 }
-void DataManager::updateData()
+
+void DataManager::saveCanDataInServer()
 {
-//    canSocket->readData(sensorData);
-    qDebug() << "Test receive sensor data";
-    qDebug() << "RPM : " << sensorData.rpm;
+    qDebug() << "can data save function called";
 }
 
-QString DataManager::dataShare()
+int DataManager::fetchRpmFromServer()
 {
-    qDebug() << "Data Sending";
-    return QString("Data share test success");
+    qDebug() << "seding rpm data";
+    return sensorData.rpm;
+}
+
+int DataManager::fetchTempFromServer()
+{
+    qDebug() << "seding temp data";
+    return sensorData.temp;
+}
+
+int DataManager::fetchHumFromServer()
+{
+    qDebug() << "seding hum data";
+    return sensorData.hum;
+}
+
+int DataManager::fetchBtrLvFromServer()
+{
+    qDebug() << "seding batter data";
+    return sensorData.battery;
 }

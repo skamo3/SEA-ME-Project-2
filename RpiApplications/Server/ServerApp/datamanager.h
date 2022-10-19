@@ -14,20 +14,21 @@ class DataManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit DataManager(const QString &ifname, QObject *parent = nullptr);
-    void updateData();
+    explicit DataManager(QObject *parent = nullptr);
 
 private:
     struct Data sensorData;
     class CANSocket *canSocket;
 
-
-    explicit DataManager(QObject *parent = nullptr);
-
 signals:
 
 public slots:
-    QString dataShare();
+    void saveCanDataInServer();
+
+    int fetchRpmFromServer();
+    int fetchTempFromServer();
+    int fetchHumFromServer();
+    int fetchBtrLvFromServer();
 
 };
 
