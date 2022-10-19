@@ -2,6 +2,7 @@
 <node>
   <interface name="local.DataManager">
     <method name="saveCanDataInServer">
+      <arg name="data" type="v" direction="in"/>
     </method>
     <method name="fetchRpmFromServer">
       <arg type="i" direction="out"/>

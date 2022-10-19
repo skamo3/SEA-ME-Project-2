@@ -12,16 +12,20 @@ class QmlController : public QObject
 public:
     explicit QmlController(QObject *parent = nullptr);
 
-    Q_INVOKABLE void getData();
+
 
     Q_INVOKABLE QString getValue() const;
 
 private:
     QString printable;
     local::DataManager *dataManager;
+    std::shared_ptr<class QTimer> timer;
 
 signals:
     void valueChanged();
+
+public slots:
+    Q_INVOKABLE void getData();
 
 };
 

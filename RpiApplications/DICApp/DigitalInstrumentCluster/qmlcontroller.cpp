@@ -2,25 +2,24 @@
 #include "qmlcontroller.h"
 
 QmlController::QmlController(QObject *parent)
-    : QObject{parent}, printable("")
+    : QObject{parent}, printable(""), timer(std::make_shared<QTimer>())
 {
-    dataManager = new local::DataManager("pi.chan", "/can",
+    dataManager = new local::DataManager("pi.chan", "/can/read",
                                          QDBusConnection::sessionBus(), this);
 
-
+    connect(timer.get(), SIGNAL(timeout()), this, SLOT(getData()));
+    timer->start();
 }
 
 void QmlController::getData()
 {
     if (QDBusConnection::sessionBus().isConnected())
         qDebug() << "Bus connected";
-    qDebug() << "It's here!!";
-    qDebug() << "test: " << dataManager->isValid();
-    QDBusPendingReply<QString> reply =  dataManager->dataShare();
+    QDBusPendingReply<int> reply =  dataManager->fetchRpmFromServer();
     if (!reply.isError())
     {
         qDebug() << "data recieved : " << reply.value();
-        printable = reply.value();
+        printable = QVariant(reply.value()).toString();
     } else {
         qDebug() << "reply is not valid";
         qDebug() << reply.error();

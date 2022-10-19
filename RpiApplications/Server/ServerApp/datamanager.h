@@ -2,13 +2,8 @@
 #define DATAMANAGER_H
 
 #include <QObject>
-
-struct Data {
-    int rpm;
-    int temp;
-    int hum;
-    int battery;
-};
+#include <QtDBus>
+#include "ServerConfig.h"
 
 class DataManager : public QObject
 {
@@ -22,7 +17,7 @@ private:
 signals:
 
 public slots:
-    void saveCanDataInServer();
+    void saveCanDataInServer(QDBusVariant data);
 
     int fetchRpmFromServer();
     int fetchTempFromServer();

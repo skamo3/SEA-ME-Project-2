@@ -1,6 +1,8 @@
 #include "datamanager.h"
 #include <QDebug>
 #include "datamanager_adaptor.h"
+#include "ServerConfig.h"
+#include "qdbusargument.h"
 
 DataManager::DataManager(QObject *parent)
     : QObject{parent}
@@ -8,9 +10,15 @@ DataManager::DataManager(QObject *parent)
     new DataManagerAdaptor(this);
 }
 
-void DataManager::saveCanDataInServer()
+void DataManager::saveCanDataInServer(QDBusVariant data)
 {
     qDebug() << "can data save function called";
+    sensorData = qdbus_cast<struct Data>(QVariant(data.variant()));
+
+    qDebug() << "rpm : " << sensorData.rpm;
+    qDebug() << "temp : " << sensorData.temp;
+    qDebug() << "hum : " << sensorData.hum;
+    qDebug() << "battery : " << sensorData.battery;
 }
 
 int DataManager::fetchRpmFromServer()
