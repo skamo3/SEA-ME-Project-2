@@ -10,7 +10,7 @@ SEA:ME 2nd Project
 ## What is CAN(Controller Arean Network)?
 - Standard communication protocol designed for vehicles to communicate with each other within a vehicle
 - **ECUs** in the vehicle communicate using the CAN protocol
-### 장점
+### Pros
 - Multi-Master
 	- All nodes are bus masters and whenever the bus is empty they can send information 
 - Twisted Pair Wire
