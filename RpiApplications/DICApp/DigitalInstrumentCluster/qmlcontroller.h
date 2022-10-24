@@ -12,6 +12,7 @@ class QmlController : public QObject
     Q_PROPERTY(int humidity READ getHumidity WRITE setHumidity NOTIFY humidityChanged)
     Q_PROPERTY(int temperature READ getTemperature WRITE setTemperature NOTIFY temperatureChanged)
     Q_PROPERTY(int battery READ getBattery WRITE setBattery NOTIFY batteryChanged)
+    Q_PROPERTY(int speed READ getSpeed WRITE setSpeed NOTIFY speedChanged)
 public:
     explicit QmlController(QObject *parent = nullptr);
 
@@ -27,11 +28,15 @@ public:
     int getBattery() const;
     void setBattery(int newBattery);
 
+    int getSpeed() const;
+    void setSpeed(int newSpeed);
+
 private:
     int rpm;
     int humidity;
     int temperature;
     int battery;
+    int speed;
 
     local::DataManager *dataManager;
     std::shared_ptr<class QTimer> timer;
@@ -41,6 +46,8 @@ signals:
     void humidityChanged();
     void temperatureChanged();
     void batteryChanged();
+
+    void speedChanged();
 
 public slots:
     Q_INVOKABLE void getData();

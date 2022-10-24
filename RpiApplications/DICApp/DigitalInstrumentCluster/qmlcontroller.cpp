@@ -33,7 +33,27 @@ void QmlController::getData()
 void QmlController::updateData()
 {
     if (!QDBusConnection::sessionBus().isConnected())
+    {
         qDebug() << "Bus connected error";
+        return ;
+    }
+    QDBusPendingReply<QDBusVariant> reply = dataManager->fetchAllDataFromServer();
+    if (!reply.isError())
+    {
+        qDebug() << "data receive success";
+        QVariant replyData;
+        replyData.setValue(reply);
+        struct Data sensorData = replyData.value<struct Data>();
+        setRpm(sensorData.rpm);
+        setHumidity(sensorData.hum);
+        setTemperature(sensorData.temp);
+        setBattery(sensorData.battery);
+    }
+    else
+    {
+        qDebug() << "reply is not valid";
+        qDebug() << reply.error();
+    }
 }
 
 int QmlController::getRpm() const
@@ -86,6 +106,19 @@ void QmlController::setBattery(int newBattery)
         return;
     battery = newBattery;
     emit batteryChanged();
+}
+
+int QmlController::getSpeed() const
+{
+    return speed;
+}
+
+void QmlController::setSpeed(int newSpeed)
+{
+    if (speed == newSpeed)
+        return;
+    speed = newSpeed;
+    emit speedChanged();
 }
 
 void QmlController::testFunc()
