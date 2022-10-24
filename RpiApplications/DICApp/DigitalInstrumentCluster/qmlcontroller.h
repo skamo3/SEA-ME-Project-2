@@ -8,24 +8,44 @@ class QmlController : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString printable READ getValue NOTIFY valueChanged)
+    Q_PROPERTY(int rpm READ getRpm WRITE setRpm NOTIFY rpmChanged)
+    Q_PROPERTY(int humidity READ getHumidity WRITE setHumidity NOTIFY humidityChanged)
+    Q_PROPERTY(int temperature READ getTemperature WRITE setTemperature NOTIFY temperatureChanged)
+    Q_PROPERTY(int battery READ getBattery WRITE setBattery NOTIFY batteryChanged)
 public:
     explicit QmlController(QObject *parent = nullptr);
 
+    int getRpm() const;
+    void setRpm(int newRpm);
 
+    int getHumidity() const;
+    void setHumidity(int newHumidity);
 
-    Q_INVOKABLE QString getValue() const;
+    int getTemperature() const;
+    void setTemperature(int newTemperature);
+
+    int getBattery() const;
+    void setBattery(int newBattery);
 
 private:
-    QString printable;
+    int rpm;
+    int humidity;
+    int temperature;
+    int battery;
+
     local::DataManager *dataManager;
     std::shared_ptr<class QTimer> timer;
 
 signals:
-    void valueChanged();
+    void rpmChanged();
+    void humidityChanged();
+    void temperatureChanged();
+    void batteryChanged();
 
 public slots:
     Q_INVOKABLE void getData();
+    void updateData();
+    void testFunc();
 
 };
 

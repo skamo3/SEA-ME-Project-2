@@ -4,19 +4,10 @@ Item {
     width: parent ? parent.width : 1024
         height: parent ? parent.height : 600
 
-        Image {
-            id: background_neon
-            anchors {
-                left: parent.horizontalCenter
-                top: parent.verticalCenter
-                topMargin: - (parent.height / 2 * 1.1)
-                leftMargin: - (parent.width / 2)
-            }
+        Rectangle {
+            color: "#171717"
             width: parent.width
-            height: parent.height * 1.1
-            opacity: 1
-            source: "qrc:/neonback.png"
-            z: 0
+            height: parent.height
         }
 
         Image {
@@ -29,20 +20,9 @@ Item {
             }
             width: parent.width
             height: parent.height
-            opacity: 0.6
+            opacity: 0.3
             source: "qrc:/back.png"
             z: 1
         }
 
-        Image {
-            id: background_ghost
-            x: 0
-            y: 0
-            width: parent.width
-            height: parent.height
-            opacity: 0.9
-            source: "qrc:/halloween.png"
-            fillMode: Image.PreserveAspectFit
-            z: 2
-        }
 }

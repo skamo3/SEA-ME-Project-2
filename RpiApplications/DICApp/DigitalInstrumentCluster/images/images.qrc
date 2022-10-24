@@ -3,5 +3,6 @@
         <file>back.png</file>
         <file>halloween.png</file>
         <file>neonback.png</file>
+        <file>battery.png</file>
     </qresource>
 </RCC>

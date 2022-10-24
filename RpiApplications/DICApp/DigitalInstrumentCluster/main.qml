@@ -9,7 +9,8 @@ Window {
     BackGround {
 
     }
-    DataArea {
+
+    InstrumentCluster {
 
     }
 }
