@@ -22,16 +22,6 @@ void DataManager::saveCanDataInServer(QDBusVariant data)
     qDebug() << "battery : " << sensorData.battery;
 }
 
-QDBusVariant DataManager::fetchAllDataFromServer()
-{
-    qDebug() << "sending all data";
-    QVariant item;
-    item.setValue(sensorData);
-    QDBusVariant dbusData;
-    dbusData.setVariant(item);
-    return dbusData;
-}
-
 int DataManager::fetchRpmFromServer()
 {
     qDebug() << "seding rpm data";

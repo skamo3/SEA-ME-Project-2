@@ -19,7 +19,6 @@ signals:
 public slots:
     void saveCanDataInServer(QDBusVariant data);
 
-    QDBusVariant fetchAllDataFromServer();
     int fetchRpmFromServer();
     int fetchTempFromServer();
     int fetchHumFromServer();
