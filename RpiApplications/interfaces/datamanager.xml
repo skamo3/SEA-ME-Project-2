@@ -4,6 +4,9 @@
     <method name="saveCanDataInServer">
       <arg name="data" type="v" direction="in"/>
     </method>
+    <method name="fetchAllDataFromServer">
+      <arg type="v" direction="out"/>
+    </method>
     <method name="fetchRpmFromServer">
       <arg type="i" direction="out"/>
     </method>
