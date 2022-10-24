@@ -23,6 +23,7 @@ void DataManager::saveCanDataInServer(QDBusVariant data)
 
 QDBusVariant DataManager::fetchAllDataFromServer()
 {
+    qDebug() << "sending all data";
     QVariant item;
     item.setValue(sensorData);
     QDBusVariant dbusData;
