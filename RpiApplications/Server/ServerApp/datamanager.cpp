@@ -8,6 +8,7 @@ DataManager::DataManager(QObject *parent)
     : QObject{parent}
 {
     new DataManagerAdaptor(this);
+    qDBusRegisterMetaType<struct Data>();
 }
 
 void DataManager::saveCanDataInServer(QDBusVariant data)
