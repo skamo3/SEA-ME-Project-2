@@ -6,6 +6,7 @@
 QmlController::QmlController(QObject *parent)
     : QObject{parent}, rpm(0), timer(std::make_shared<QTimer>())
 {
+    qDBusRegisterMetaType<struct Data>();
     dataManager = new local::DataManager("pi.chan", "/can/read",
                                          QDBusConnection::sessionBus(), this);
 
