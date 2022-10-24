@@ -1,33 +1,18 @@
 #include <QtDBus>
-#include "qmlcontroller.h"
-#include <QtQuick/QtQuick>
 #include "ServerConfig.h"
+#include "qmlcontroller.h"
+
 
 QmlController::QmlController(QObject *parent)
     : QObject{parent}, rpm(0), timer(std::make_shared<QTimer>())
 {
+    qDBusRegisterMetaType<struct Data>();
     dataManager = new local::DataManager("pi.chan", "/can/read",
                                          QDBusConnection::sessionBus(), this);
 
-    connect(timer.get(), SIGNAL(timeout()), this, SLOT(testFunc()));
-    timer->setInterval(1000);
+    connect(timer.get(), SIGNAL(timeout()), this, SLOT(updateData()));
+    timer->setInterval(2000);
     timer->start();
-}
-
-void QmlController::getData()
-{
-//    if (QDBusConnection::sessionBus().isConnected())
-//        qDebug() << "Bus connected";
-//    QDBusPendingReply<int> reply =  dataManager->fetchRpmFromServer();
-//    if (!reply.isError())
-//    {
-//        qDebug() << "data recieved : " << reply.value();
-//        printable = QVariant(reply.value()).toString();
-//    } else {
-//        qDebug() << "reply is not valid";
-//        qDebug() << reply.error();
-//    }
-    //    emit valueChanged();
 }
 
 void QmlController::updateData()
@@ -42,7 +27,7 @@ void QmlController::updateData()
     {
         qDebug() << "data receive success";
         QVariant replyData;
-        replyData.setValue(reply);
+        replyData.setValue(reply.value());
         struct Data sensorData = replyData.value<struct Data>();
         setRpm(sensorData.rpm);
         setHumidity(sensorData.hum);

@@ -50,7 +50,6 @@ signals:
     void speedChanged();
 
 public slots:
-    Q_INVOKABLE void getData();
     void updateData();
     void testFunc();
 
