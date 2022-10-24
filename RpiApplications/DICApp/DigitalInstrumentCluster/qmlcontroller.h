@@ -39,7 +39,9 @@ private:
     int speed;
 
     local::DataManager *dataManager;
-    std::shared_ptr<class QTimer> timer;
+    std::shared_ptr<class QTimer> rpmTimer;
+    std::shared_ptr<class QTimer> batteryTimer;
+    std::shared_ptr<class QTimer> tempHumTimer;
 
 signals:
     void rpmChanged();
@@ -50,8 +52,9 @@ signals:
     void speedChanged();
 
 public slots:
-    void updateData();
-    void testFunc();
+    void updateRpm();
+    void updateBattery();
+    void updateTempHum();
 
 };
 

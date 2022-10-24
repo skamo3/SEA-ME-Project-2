@@ -4,40 +4,87 @@
 
 
 QmlController::QmlController(QObject *parent)
-    : QObject{parent}, rpm(0), timer(std::make_shared<QTimer>())
+    : QObject{parent}, rpm(0), rpmTimer(std::make_shared<QTimer>()),
+      batteryTimer(std::make_shared<QTimer>()), tempHumTimer(std::make_shared<QTimer>())
 {
     qDBusRegisterMetaType<struct Data>();
     dataManager = new local::DataManager("pi.chan", "/can/read",
                                          QDBusConnection::sessionBus(), this);
 
-    connect(timer.get(), SIGNAL(timeout()), this, SLOT(updateData()));
-    timer->setInterval(2000);
-    timer->start();
+    connect(rpmTimer.get(), SIGNAL(timeout()), this, SLOT(updateRpm()));
+    connect(batteryTimer.get(), SIGNAL(timeout()), this, SLOT(updateBattery()));
+    connect(tempHumTimer.get(), SIGNAL(timeout()), this, SLOT(updateTempHum()));
+
+    rpmTimer->setInterval(2000);
+    batteryTimer->setInterval(5000);
+    tempHumTimer->setInterval(10000);
+
+    rpmTimer->start();
+    batteryTimer->start();
+    tempHumTimer->start();
 }
 
-void QmlController::updateData()
+void QmlController::updateRpm()
 {
     if (!QDBusConnection::sessionBus().isConnected())
     {
         qDebug() << "Bus connected error";
         return ;
     }
-    QDBusPendingReply<QDBusVariant> reply = dataManager->fetchAllDataFromServer();
+    QDBusPendingReply<int> reply = dataManager->fetchRpmFromServer();
     if (!reply.isError())
     {
-        qDebug() << "data receive success";
-        QVariant replyData;
-        replyData.setValue(reply.value());
-        struct Data sensorData = replyData.value<struct Data>();
-        setRpm(sensorData.rpm);
-        setHumidity(sensorData.hum);
-        setTemperature(sensorData.temp);
-        setBattery(sensorData.battery);
+        qDebug() << "Rpm data fetch success : " << reply.value();
+        setRpm(reply.value());
     }
     else
     {
         qDebug() << "reply is not valid";
         qDebug() << reply.error();
+    }
+}
+
+void QmlController::updateBattery()
+{
+    if (!QDBusConnection::sessionBus().isConnected())
+    {
+        qDebug() << "Bus connected error";
+        return ;
+    }
+    QDBusPendingReply<int> reply = dataManager->fetchBtrLvFromServer();
+    if (!reply.isError())
+    {
+        qDebug() << "Battery data fetch success : " << reply.value();
+        setBattery(reply.value());
+    }
+    else
+    {
+        qDebug() << "reply is not valid";
+        qDebug() << reply.error();
+    }
+}
+
+void QmlController::updateTempHum()
+{
+    if (!QDBusConnection::sessionBus().isConnected())
+    {
+        qDebug() << "Bus connected error";
+        return ;
+    }
+    QDBusPendingReply<int> temp = dataManager->fetchBtrLvFromServer();
+    QDBusPendingReply<int> hum = dataManager->fetchBtrLvFromServer();
+    if (!temp.isError() && !hum.isError())
+    {
+        qDebug() << "Temp data fetch success : " << temp.value();
+        qDebug() << "Hum data fetch success : " << temp.value();
+        setTemperature(temp.value());
+        setTemperature(hum.value());
+    }
+    else
+    {
+        qDebug() << "reply is not valid";
+        qDebug() << temp.error();
+        qDebug() << hum.isError();
     }
 }
 
@@ -106,12 +153,4 @@ void QmlController::setSpeed(int newSpeed)
     emit speedChanged();
 }
 
-void QmlController::testFunc()
-{
-    qDebug() << "test func called : " << rpm;
-    int ran = QRandomGenerator::global()->bounded(0, 5000);
-    setRpm(ran);
-    setTemperature(QRandomGenerator::global()->bounded(0, 50));
-    setHumidity(QRandomGenerator::global()->bounded(0, 50));
-}
 
