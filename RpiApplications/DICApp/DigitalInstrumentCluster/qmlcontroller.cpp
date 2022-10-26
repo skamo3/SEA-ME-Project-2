@@ -95,7 +95,7 @@ int QmlController::getRpm() const
 
 void QmlController::setRpm(int newRpm)
 {
-    if (rpm == newRpm)
+    if (rpm == newRpm && newRpm < 0)
         return;
     rpm = newRpm;
     emit rpmChanged();
@@ -108,7 +108,7 @@ int QmlController::getHumidity() const
 
 void QmlController::setHumidity(int newHumidity)
 {
-    if (humidity == newHumidity)
+    if (humidity == newHumidity && newHumidity < 0)
         return;
     humidity = newHumidity;
     emit humidityChanged();
@@ -121,7 +121,7 @@ int QmlController::getTemperature() const
 
 void QmlController::setTemperature(int newTemperature)
 {
-    if (temperature == newTemperature)
+    if (temperature == newTemperature && newTemperature < -20)
         return;
     temperature = newTemperature;
     emit temperatureChanged();
@@ -134,7 +134,7 @@ int QmlController::getBattery() const
 
 void QmlController::setBattery(int newBattery)
 {
-    if (battery == newBattery)
+    if (battery == newBattery && newBattery < 0)
         return;
     battery = newBattery;
     emit batteryChanged();
@@ -147,7 +147,7 @@ int QmlController::getSpeed() const
 
 void QmlController::setSpeed(int newSpeed)
 {
-    if (speed == newSpeed)
+    if (speed == newSpeed && newSpeed < 0)
         return;
     speed = newSpeed;
     emit speedChanged();
