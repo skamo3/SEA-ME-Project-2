@@ -137,6 +137,7 @@ void QmlController::setBattery(int newBattery)
     if (battery == newBattery && newBattery < 0)
         return;
     battery = newBattery;
+    qDebug() << "Battery percent : " << battery;
     emit batteryChanged();
 }
 

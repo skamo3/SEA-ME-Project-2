@@ -66,7 +66,7 @@ Item {
         }
 
         Rectangle {
-            width: (batteryImg.width * 0.7) * datacontroller.battery % 100
+            width: (batteryImg.width * 0.7) * datacontroller.battery / 100
             height: batteryImg.height * 0.4
             radius: width * 0.1
             color: "#00FF00"
