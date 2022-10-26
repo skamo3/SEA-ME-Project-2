@@ -8,18 +8,21 @@
 #include <stdint.h>
 #include <iostream>
 #include <iomanip>
-#include "canreceiver.h"
 #include <QDebug>
 #include <QTimer>
 #include "ServerConfig.h"
+#include "ina219.h"
+#include "canreceiver.h"
 
 CanReceiver::CanReceiver(QObject *parent)
-    : QObject{parent}, canTimer(std::make_shared<QTimer>()),
-      dbusTimer(std::make_shared<QTimer>())
+    : QObject{parent}, socketFD(0), canData(new struct Data), inaStatus(0),
+      ina219(NULL), canTimer(std::make_shared<QTimer>()),
+      dbusTimer(std::make_shared<QTimer>()), batteryTimer(std::make_shared<QTimer>())
 {
     qDBusRegisterMetaType<struct Data>();
     connect(canTimer.get(), SIGNAL(timeout()), this, SLOT(readData()));
     connect(dbusTimer.get(), SIGNAL(timeout()), this, SLOT(sendCanDataToServer()));
+    connect(batteryTimer.get(), SIGNAL(timeout()), this, SLOT(readBatteryData()));
 }
 
 CanReceiver::CanReceiver(const CanReceiver &origin)
@@ -102,33 +105,73 @@ void CanReceiver::initDBusServer(const QString &serverName, const QString &objNa
 {
     dataManager = new local::DataManager(serverName, objName,
                                          QDBusConnection::sessionBus(), this);
+    qDebug() << COLOR_BGREEN << "Success to open Dbus server" << COLOR_RESET;
 }
 
 void CanReceiver::startCommunicate()
 {
     int intervals = 10;
+    inaStatus = initBatteryLine();
+
     canTimer->start(intervals);
     dbusTimer->start(intervals);
+    batteryTimer->start(5000);
+}
+
+int CanReceiver::initBatteryLine()
+{
+    ina219 = ina219_create(I2C_DEV, I2C_ADDR, SHUNT_MILLIOHMS,
+                           BATTERY_VOLTAGE_0_PERCENT, BATTERY_VOLTAGE_100_PERCENT,
+                           BATTERY_CAPACITY, MIN_CHARGING_CURRENT);
+    char *error = NULL;
+    if (!ina219_init(ina219, &error))
+    {
+        qDebug() << QString("Battery line init fail %1").arg(error);
+        return 0;
+    }
+    qDebug() << COLOR_BGREEN << "Success to battery line init" << COLOR_RESET;
+    return 1;
 }
 
 void CanReceiver::sendCanDataToServer()
 {
     if (socketFD < 0)
     {
-        qDebug() << "Can socket is not open";
+        qDebug() << COLOR_BRED << "CAN socket is not open" << COLOR_RESET;
         return;
     }
     if (!dataManager)
     {
-        qDebug() << "D-Bus session is not open";
+        qDebug() << COLOR_BRED << "D-Bus session is not open" << COLOR_RESET;
         return;
     }
-    struct Data canData;
-    canData.rpm = (canFrame.data[0] * 256) + canFrame.data[1];
+    canData->rpm = (canFrame.data[0] * 256) + canFrame.data[1];
+    canData->temp = canFrame.data[2];
+    canData->hum = canFrame.data[3];
     QVariant v;
-    v.setValue(canData);
+    v.setValue(*canData);
     QDBusVariant da;
     da.setVariant(v);
-    qDebug() << "rpm : " << canData.rpm;
     dataManager->saveCanDataInServer(da);
+}
+
+void CanReceiver::readBatteryData()
+{
+    int mV;
+    int percent_charged;
+    int battery_current_mA;
+    int minutes;
+    INA219ChargeStatus charge_status;
+    char *error;
+    if (inaStatus == 1 &&
+            ina219_get_status(ina219, &charge_status,
+                              &mV, &percent_charged, &battery_current_mA,
+                              &minutes, &error))
+    {
+        canData->battery = percent_charged;
+    }
+    else
+    {
+        qDebug() << COLOR_BRED << "Failed to get battery : " << error << COLOR_RESET;
+    }
 }

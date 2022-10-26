@@ -45,7 +45,9 @@
   ==========================================================================*/
 #pragma once
 
-struct INA219;
+#include "defs.h"
+
+struct _INA219;
 typedef struct _INA219 INA219;
 
 // The percentage of the maximum voltage above which we will assume

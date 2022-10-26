@@ -22,6 +22,16 @@
 
 # define CAN_FRAME_MAX_LEN 8
 
+#define I2C_ADDR 0x42
+#define I2C_DEV "/dev/i2c-1"
+#define BATTERY_VOLTAGE_100_PERCENT 8400
+#define BATTERY_VOLTAGE_0_PERCENT 6000
+#define BATTERY_CAPACITY 2400
+#define MIN_CHARGING_CURRENT 10
+#define SHUNT_MILLIOHMS 100
+
+typedef struct _INA219 INA219;
+
 class CanReceiver : public QObject
 {
     Q_OBJECT
@@ -40,15 +50,22 @@ public:
 private:
     int socketFD;
     struct can_frame canFrame;
+    struct Data *canData;
+    int inaStatus;
+    INA219 *ina219;
     local::DataManager *dataManager;
     std::shared_ptr<class QTimer> canTimer;
     std::shared_ptr<class QTimer> dbusTimer;
+    std::shared_ptr<class QTimer> batteryTimer;
+
+    int initBatteryLine();
 
 signals:
 
 public slots:
     int readData();
     void sendCanDataToServer();
+    void readBatteryData();
 
 };
 

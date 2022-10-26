@@ -13,6 +13,7 @@ DBUS_INTERFACES += ../../interfaces/datamanager.xml
 
 SOURCES += \
         canreceiver.cpp \
+        ina219.c \
         main.cpp
 
 # Default rules for deployment.
@@ -22,6 +23,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     ../../ServerConfig.h \
-    canreceiver.h
+    canreceiver.h \
+    defs.h \
+    ina219.h
 
 INCLUDEPATH += ../../
