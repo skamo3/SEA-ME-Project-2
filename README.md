@@ -183,6 +183,65 @@ SEA:ME 2nd Project
 ## Send & Receive Data 
 
 - Raspberry-Pi and Arduino communication with CAN communicate library
+### Set Can  
+
+1. Setting CAN interface on Raspberry Pi
+	- Add the following line to your /boot/config.txt file:  
+		```vim
+		dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
+		dtoverlay=spi-bcm2835-overlay
+		```
+		- oscillator : should be set to the actual crystal frequency found on your MCP2515
+		- interrupt : specifies the Raspberry PI GPIO pin number
+
+	- Reboot your Raspberry Pi and Check this line
+		```
+		[   20.248951] CAN device driver interface
+		[   20.499256] mcp251x spi0.0 can0: MCP2515 successfully initialized.
+		```  
+2. Bring up the CAN interfaces  
+	2-1. Manually bring up  
+	- Follow this command in terminal  
+		`sudo /sbin/ip link set can0 up type can bitrate 500000  `
+		- Check your CAN bus bitrate and write correct number  
+	
+	2-2. Automatically bring up on boot
+	- Edit your `/etc/network/interfaces` file and add this line
+		```vim
+		auto can0
+		iface can0 inet manual
+			pre-up /sbin/ip link set can0 type can bitrate 500000 triple-sampling on restart-ms 100
+			up /sbin/ifconfig can0 up
+			down /sbin/ifconfig can0 down
+		```
+
+- Check CAN module  
+	- Enter this command and check output  
+	<img width="650" alt="image" src="https://user-images.githubusercontent.com/54701846/198319567-d80022c6-c79a-4935-94f9-c99f93767d45.png">  
+
+3. CAN-utils
+	- CAN-utils is a collection of extremely useful debugging tools using the SocketCAN interface
+	- list of applications
+		- candump : Dump can packets – display, filter and log to disk.
+		- canplayer : Replay CAN log files.
+		- cansend : Send a single frame.
+		- cangen : Generate random traffic.
+		- canbusload : display the current CAN bus utilisation.
+	- Install CAN utils
+		- [CAN-utils Git repository](https://github.com/linux-can/can-utils)
+		- Pre-compiled binaries can be installed using:  
+		` sudo apt-get install can-utils `
+
+4. CAN data send or receive with CAN utils
+	- Make random data  
+	`cangen can0`
+	- Receive can data and check in terminal  
+	`candump can0`  
+	<img width="352" alt="image" src="https://user-images.githubusercontent.com/54701846/198325409-cbf8b9e0-fdd1-4a0d-acd7-91202315d4b1.png">
+
+
+> [Reference link](https://www.beyondlogic.org/adding-can-controller-area-network-to-the-raspberry-pi/)
 
 ### [Send sensor data Arduino -> Raspberry-Pi](./documents/ArduinoSendData.md)
 
+### [Receive sensor data on Raspberry-Pi with code](./documents/RaspberryPiReceiveData.md)
