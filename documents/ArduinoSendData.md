@@ -1,5 +1,5 @@
 
-# Sensor data read and Send data example code
+# Example of Sensor data read and Send data to Raspberry pi
 
 ## Install Arduino IDE
 - [Download for ubuntu](https://ubuntu.com/tutorials/install-the-arduino-ide#1-overview)
