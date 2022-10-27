@@ -16,6 +16,24 @@ SEA:ME 2nd Project
 
 
 # Basics knowledge of the Architecture
+
+## What is Arduino?
+- Micro Controller
+	-  Small electronic device that can easily handle various movements such as read data from sensors or use data to control motors.
+	- C language (or C++) and Arduino IDE enable simple coding
+	- Consists of Regulator, Circuit Element, GPIO
+	- Peripherals allow direct control of external devices
+	- [More Information of Arduino](https://www.arduino.cc/en/Guide/Introduction)
+> GPIO 
+>	- General Purpose Input/Output
+>	- Uncommitted digital signal pin on an integrated circuit or electronic circuit board which may be used as an input or output, or both, and is controllable by software.
+## What is Raspberry Pi?
+- Micro Processor
+	- Similar to Arduino, but called Processor because it can have various OSs
+	- Unlike Arduino, there is no peripheral device and controls the device using an internal transistor
+	- Powerful performance in computational processing, which is useful for complex computational processing such as video and graphics
+	- [Raspberry Pi official document](https://www.raspberrypi.com/documentation/computers/)
+
 ## What is CAN(Controller Area Network)?
 - Standard communication protocol designed for vehicles to communicate with each other within a vehicle
 - **ECUs** in the vehicle communicate using the CAN protocol
@@ -40,7 +58,7 @@ SEA:ME 2nd Project
 - D-Bus is a service daemon that runs in the background that uses the bus daemon to communicate functions and communications between applications
 	![image](https://user-images.githubusercontent.com/54701846/198288126-4fe57537-08c5-4fa0-919a-aa205ec3a55d.png)
 
-  - -Bus 데몬의 2가지 유형  
+  - Two type of D-Bus daemon  
     1. D-Bus System bus
        - Communicate with kernel and system-wide events
        - Any application is prevented from spoofing
@@ -94,23 +112,6 @@ SEA:ME 2nd Project
 	- Error Message
 	- Signal Message
 	- Header and Body
-
-## What is Arduino?
-- Micro Controller
-	-  Small electronic device that can easily handle various movements such as read data from sensors or use data to control motors.
-	- C language (or C++) and Arduino IDE enable simple coding
-	- Consists of Regulator, Circuit Element, GPIO
-	- Peripherals allow direct control of external devices
-	- [More Information of Arduino](https://www.arduino.cc/en/Guide/Introduction)
-> GPIO 
->	- General Purpose Input/Output
->	- Uncommitted digital signal pin on an integrated circuit or electronic circuit board which may be used as an input or output, or both, and is controllable by software.
-## What is Raspberry Pi?
-- Micro Processor
-	- Similar to Arduino, but called Processor because it can have various OSs
-	- Unlike Arduino, there is no peripheral device and controls the device using an internal transistor
-	- Powerful performance in computational processing, which is useful for complex computational processing such as video and graphics
-	- [Raspberry Pi official document](https://www.raspberrypi.com/documentation/computers/)
 
 # Prepare the materials
 
