@@ -19,7 +19,7 @@ SEA:ME 2nd Project
 ## What is CAN(Controller Area Network)?
 - Standard communication protocol designed for vehicles to communicate with each other within a vehicle
 - **ECUs** in the vehicle communicate using the CAN protocol
-### Pros
+### Advantage
 - Multi-Master
 	- All nodes are bus masters and whenever the bus is empty they can send information 
 - Twisted Pair Wire
@@ -184,5 +184,5 @@ SEA:ME 2nd Project
 
 - Raspberry-Pi and Arduino communication with CAN communicate library
 
-### [Send sensor data Arduino -> Raspberry-Pi](./SensorDataTransmitter/ArduinoSendData.md)
+### [Send sensor data Arduino -> Raspberry-Pi](./documents/ArduinoSendData.md)
 
