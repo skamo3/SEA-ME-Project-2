@@ -6,8 +6,17 @@ SEA:ME 2nd Project
 
 # Table of Contents
 
-# Basics knowledge of the Hardware
-## What is CAN(Controller Arean Network)?
+# Complete Architecture
+
+![image](https://user-images.githubusercontent.com/54701846/198272218-2d9131da-847f-4fbf-a447-c06f7a264a88.png)
+
+- Simple project architecture
+  - Receive sensor data from Arduino and transfer it to Raspberry Pi using CAN Bus
+  - Raspberry Pi uses the DBus server to manage the data it receives and delivers the data it needs for each application
+
+
+# Basics knowledge of the Architecture
+## What is CAN(Controller Area Network)?
 - Standard communication protocol designed for vehicles to communicate with each other within a vehicle
 - **ECUs** in the vehicle communicate using the CAN protocol
 ### Pros
@@ -24,6 +33,67 @@ SEA:ME 2nd Project
 > ECU
 >	- Electronic Control Unit
 >	- Electronic control device used in a car
+
+## What is D-Bus?
+- System for IPC(Inter-Process Communication)
+- A bus system that enables various processes with different characteristics to communicate with each other
+- D-Bus is a service daemon that runs in the background that uses the bus daemon to communicate functions and communications between applications
+	![image](https://user-images.githubusercontent.com/54701846/198288126-4fe57537-08c5-4fa0-919a-aa205ec3a55d.png)
+
+  - -Bus 데몬의 2가지 유형  
+    1. D-Bus System bus
+       - Communicate with kernel and system-wide events
+       - Any application is prevented from spoofing
+    2. D-Bus Session bus
+       - daemon attached to each user session
+       - Used to communicate with other applications within the same system
+       - Receive messages from the system bus
+> Check D-bus service in terminal  
+> ``` ps -ef | grep dbus-demon ```
+> <img width="758" alt="image" src="https://user-images.githubusercontent.com/54701846/198288931-78f25649-1af8-42c8-a8d3-163329d950f0.png">  
+> Separated by behind word
+> - ```--system ``` or ```--session```
+### Key Terms and Concepts
+- Bus name(Service name)
+  - Unique name for 1 connection
+  - Automatically generated when connected to D-Bus daemon and can be set up by the user themselves
+  - Names once used are non-reusable and must not be duplicated
+- Object path
+  - D-bus is a Peer-to-Peer protocol in which all messages sent and received are source and purposeful
+  - Address used to send and receive messages
+    - Written like "/org/example/Test"
+  - Multiple object paths can be assigned differently than a business name
+  - Object provides one or more interfaces
+- Interface
+  - Name of grouping Method and Signal
+  - Interface is used as the namespace for each method
+  - example
+    ``` xml
+	<?xml version="1.0" ?>
+		<node name="/org/freedesktop/DBus/Example/Echo">
+			<interface name="org.freedesktop.DBus.EchoDemo">
+				<method name="HelloString">
+					<arg type="s" name="name" direction="in"/>
+					<arg type="s" name="greeting" direction="out"/>
+				</method>
+				<signal name="EchoCount">
+					<arg type="y" name="count"/>
+				</signal>
+			</interface>
+		</node>
+	```
+	> - Method
+	>	- Can be called by another object
+	>	- Can optionally have Input and Output
+	> - Signal 
+	> 	- Kind of broadcast message. Send to one object to all objects registered with that signal
+  - Message
+	- Data passed between processes
+	- Method Call Message
+	- Method Return Message
+	- Error Message
+	- Signal Message
+	- Header and Body
 
 ## What is Arduino?
 - Micro Controller
@@ -110,8 +180,9 @@ SEA:ME 2nd Project
 
 </p>
 
-## Send & Receive Data
+## Send & Receive Data 
 
-- CAN 통신 라이브러리를 이용한 Arduino와 Raspberry-Pi의 통신
+- Raspberry-Pi and Arduino communication with CAN communicate library
 
-### [Send sensor data to Raspberry-Pi from Arduino](./SensorDataTransmitter/index.md)
+### [Send sensor data Arduino -> Raspberry-Pi](./SensorDataTransmitter/ArduinoSendData.md)
+
