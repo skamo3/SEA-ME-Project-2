@@ -246,3 +246,5 @@ SEA:ME 2nd Project
 ### [Send sensor data Arduino -> Raspberry-Pi](./documents/ArduinoSendData.md)
 
 ### [Receive sensor data on Raspberry-Pi with code](./documents/RaspberryPiReceiveData.md)
+
+### [D-Bus communication with Qt Library](./documents/QtBasics.md)
