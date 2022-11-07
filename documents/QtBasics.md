@@ -10,4 +10,12 @@
 
 # [Cross Compiling Qt for Rpi and Ubuntu](./CrossCompileQT.md)
 
-# How to use QDBus
+# [QT use Qml file and C++](./QtQmlCppMVC.md)
+- Display graphic with qml and manage data with C++
+
+
+# [How to use QDBus](./QtDBus.md)
+- Qt support the library for use DBus server
+- Basic tutorial for using the QtDBus library
+
+## 
