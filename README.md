@@ -35,22 +35,24 @@ SEA:ME 2nd Project
 	- [Raspberry Pi official document](https://www.raspberrypi.com/documentation/computers/)
 
 ## What is CAN(Controller Area Network)?
-- Standard communication protocol designed for vehicles to communicate with each other within a vehicle
+- Standard communication protocol to allow microcontrollers and devices to **communicate with each other's applications** without a host computer
 - **ECUs** in the vehicle communicate using the CAN protocol
+	> ECU
+	>	- Electronic Control Unit
+	>	- Electronic control device used in a car
 ### Advantage
 - Multi-Master
 	- All nodes are bus masters and whenever the bus is empty they can send information 
 - Twisted Pair Wire
-	- Strong against electrical noise due to electrically differentiated communication using two lines : CAN_H, CAN_L
-	- Scalability. Only need to connect to two lines, No matter how many ECUs. 
+	- Strong against disturbance due to electrically differentiated communication using two lines : CAN_H, CAN_L   
+		add picture
+- Scalability
+	- Only need to connect to two lines, No matter how many ECUs. 
 		<img width="444" alt="image" src="https://user-images.githubusercontent.com/54701846/191264465-e9e956a9-d0fc-4817-9e90-276ba66cf1e3.png">
 
 - Message-Oriented Protocol
 	- Use ID based on message priority. Use them to distinguish messages
 	- Multiple messages come in at the same time, carry out the priority ID message 
-> ECU
->	- Electronic Control Unit
->	- Electronic control device used in a car
 
 ## What is D-Bus?
 - System for IPC(Inter-Process Communication)
@@ -217,7 +219,7 @@ SEA:ME 2nd Project
 		```
 
 - Check CAN module  
-	- Enter this command and check output  
+	- Enter ```ifconfig can0``` and check output
 	<img width="650" alt="image" src="https://user-images.githubusercontent.com/54701846/198319567-d80022c6-c79a-4935-94f9-c99f93767d45.png">  
 
 3. CAN-utils

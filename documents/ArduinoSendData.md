@@ -8,7 +8,7 @@
 ## Download library
 - [CAN library repository](https://github.com/coryjfowler/MCP_CAN_lib)
 - [Timer library download](https://playground.arduino.cc/Code/Timer1/)
-### Library import 
+### Library import in Arduino IDE
 1. Download ZIP file
 2. Sketch -> Include Library -> Add .ZIP library...
 3. Add include line
