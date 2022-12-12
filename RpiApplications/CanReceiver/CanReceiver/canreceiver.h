@@ -55,16 +55,18 @@ private:
     INA219 *ina219;
     local::DataManager *dataManager;
     std::shared_ptr<class QTimer> canTimer;
-    std::shared_ptr<class QTimer> dbusTimer;
     std::shared_ptr<class QTimer> batteryTimer;
 
     int initBatteryLine();
+
+    void sendHumTempDataToServer();
+    void sendRpmSpeedDataToServer();
+    void sendBatteryDataToServer();
 
 signals:
 
 public slots:
     int readData();
-    void sendCanDataToServer();
     void readBatteryData();
 
 };

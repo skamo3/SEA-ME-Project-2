@@ -17,11 +17,10 @@
 CanReceiver::CanReceiver(QObject *parent)
     : QObject{parent}, socketFD(0), canData(new struct Data), inaStatus(0),
       ina219(NULL), canTimer(std::make_shared<QTimer>()),
-      dbusTimer(std::make_shared<QTimer>()), batteryTimer(std::make_shared<QTimer>())
+      batteryTimer(std::make_shared<QTimer>())
 {
-    qDBusRegisterMetaType<struct Data>();
+//    qDBusRegisterMetaType<struct Data>();
     connect(canTimer.get(), SIGNAL(timeout()), this, SLOT(readData()));
-    connect(dbusTimer.get(), SIGNAL(timeout()), this, SLOT(sendCanDataToServer()));
     connect(batteryTimer.get(), SIGNAL(timeout()), this, SLOT(readBatteryData()));
 }
 
@@ -88,15 +87,20 @@ int CanReceiver::readData()
         return rd_byte;
     }
 
-    std::cout << "ID =>[0x" << std::hex << canFrame.can_id << "] | size{" << int(canFrame.can_dlc) << "}" << std::endl;
+    if (canFrame.data[0] != canData->hum || canFrame.data[1] != canData->temp)
+    {
+        canData->hum = canFrame.data[0];
+        canData->temp = canFrame.data[1];
+        sendHumTempDataToServer();
+    }
 
-    for (int i = 0; i < canFrame.can_dlc; i++)
-        std::cout << std::hex << int(canFrame.data[i]) << " : ";
-    std::cout << std::endl;
-
-    int rpm = (canFrame.data[0] * 256) + canFrame.data[1];
-
-    std::cout << "RPM : " << std::dec << rpm << std::endl;
+    if (canData->rpm != (canFrame.data[2] | uint16_t(canFrame.data[3]) << 8)
+            || canData->speed != canFrame.data[4])
+    {
+        canData->rpm = canFrame.data[2] | uint16_t(canFrame.data[3]) << 8;
+        canData->speed = canFrame.data[4];
+        sendRpmSpeedDataToServer();
+    }
 
     return rd_byte;
 }
@@ -114,7 +118,6 @@ void CanReceiver::startCommunicate()
     inaStatus = initBatteryLine();
 
     canTimer->start(intervals);
-    dbusTimer->start(intervals);
     batteryTimer->start(5000);
 }
 
@@ -133,26 +136,22 @@ int CanReceiver::initBatteryLine()
     return 1;
 }
 
-void CanReceiver::sendCanDataToServer()
+void CanReceiver::sendHumTempDataToServer()
 {
-    if (socketFD < 0)
-    {
-        qDebug() << COLOR_BRED << "CAN socket is not open" << COLOR_RESET;
-        return;
-    }
-    if (!dataManager)
-    {
-        qDebug() << COLOR_BRED << "D-Bus session is not open" << COLOR_RESET;
-        return;
-    }
-    canData->rpm = (canFrame.data[0] * 256) + canFrame.data[1];
-    canData->temp = canFrame.data[2];
-    canData->hum = canFrame.data[3];
-    QVariant v;
-    v.setValue(*canData);
-    QDBusVariant da;
-    da.setVariant(v);
-    dataManager->saveCanDataInServer(da);
+    qDebug() << "send hum temp data from can receiver";
+    dataManager->saveHumTempInServer(canData->hum, canData->temp);
+}
+
+void CanReceiver::sendRpmSpeedDataToServer()
+{
+    qDebug() << "send rpm speed data from can receiver";
+    dataManager->saveRpmSpeedInServer(canData->rpm, canData->speed);
+}
+
+void CanReceiver::sendBatteryDataToServer()
+{
+    qDebug() << "send battery data from can receiver";
+    dataManager->saveBatteryLVInServer(canData->battery);
 }
 
 void CanReceiver::readBatteryData()
@@ -168,7 +167,11 @@ void CanReceiver::readBatteryData()
                               &mV, &percent_charged, &battery_current_mA,
                               &minutes, &error))
     {
-        canData->battery = percent_charged;
+        if (canData->battery != percent_charged)
+        {
+            canData->battery = percent_charged;
+            sendBatteryDataToServer();
+        }
     }
     else
     {
