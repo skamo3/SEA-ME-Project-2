@@ -1,8 +1,22 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node>
   <interface name="local.DataManager">
-    <method name="saveCanDataInServer">
-      <arg name="data" type="v" direction="in"/>
+    <signal name="broadRpmSpeedChanged">
+    </signal>
+    <signal name="broadHumTempChanged">
+    </signal>
+    <signal name="broadBatteryChanged">
+    </signal>
+    <method name="saveRpmSpeedInServer">
+      <arg name="rpm" type="i" direction="in"/>
+      <arg name="speed" type="i" direction="in"/>
+    </method>
+    <method name="saveHumTempInServer">
+      <arg name="hum" type="i" direction="in"/>
+      <arg name="temp" type="i" direction="in"/>
+    </method>
+    <method name="saveBatteryLVInServer">
+      <arg name="battery" type="i" direction="in"/>
     </method>
     <method name="fetchRpmFromServer">
       <arg type="i" direction="out"/>
@@ -14,6 +28,9 @@
       <arg type="i" direction="out"/>
     </method>
     <method name="fetchBtrLvFromServer">
+      <arg type="i" direction="out"/>
+    </method>
+    <method name="fetchSpeedFromServer">
       <arg type="i" direction="out"/>
     </method>
   </interface>

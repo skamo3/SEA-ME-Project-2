@@ -12,6 +12,7 @@ struct Data {
     int temp;
     int hum;
     int battery;
+    int speed;
 
     friend QDBusArgument &operator<<(QDBusArgument &arg, const struct Data &data)
     {

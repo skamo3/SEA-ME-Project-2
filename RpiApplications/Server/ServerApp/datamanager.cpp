@@ -2,25 +2,46 @@
 #include <QDebug>
 #include "datamanager_adaptor.h"
 #include "ServerConfig.h"
-#include "qdbusargument.h"
 
 DataManager::DataManager(QObject *parent)
-    : QObject{parent}
+    : QObject{parent}, sensorData(), signalTimer(std::make_shared<QTimer>())
 {
     new DataManagerAdaptor(this);
-    qDBusRegisterMetaType<struct Data>();
+
 }
 
-void DataManager::saveCanDataInServer(QDBusVariant data)
+void DataManager::saveRpmSpeedInServer(int rpm, int speed)
 {
-    qDebug() << "can data save function called";
-    sensorData = qdbus_cast<struct Data>(QVariant(data.variant()));
-
-    qDebug() << "rpm : " << sensorData.rpm;
-    qDebug() << "temp : " << sensorData.temp;
-    qDebug() << "hum : " << sensorData.hum;
-    qDebug() << "battery : " << sensorData.battery;
+    if (sensorData.rpm != rpm || sensorData.speed != speed)
+    {
+        sensorData.rpm = rpm;
+        sensorData.speed = speed;
+        // call broadcast
+        emit broadRpmSpeedChanged();
+    }
 }
+
+void DataManager::saveHumTempInServer(int hum, int temp)
+{
+    if (sensorData.hum != hum || sensorData.temp != temp)
+    {
+        sensorData.hum = hum;
+        sensorData.temp = temp;
+        // call broadcast
+        emit broadHumTempChanged();
+    }
+}
+
+void DataManager::saveBatteryLVInServer(int battery)
+{
+    if (sensorData.battery != battery)
+    {
+        sensorData.battery = battery;
+        // call broadcast
+        emit broadBatteryChanged();
+    }
+}
+
 
 int DataManager::fetchRpmFromServer()
 {
@@ -45,3 +66,10 @@ int DataManager::fetchBtrLvFromServer()
     qDebug() << "seding batter data";
     return sensorData.battery;
 }
+
+int DataManager::fetchSpeedFromServer()
+{
+    qDebug() << "seding batter data";
+    return sensorData.speed;
+}
+

@@ -14,15 +14,25 @@ public:
 private:
     struct Data sensorData;
 
+
+    std::shared_ptr<class QTimer> signalTimer;
+
 signals:
+    void broadRpmSpeedChanged();
+    void broadHumTempChanged();
+    void broadBatteryChanged();
+
 
 public slots:
-    void saveCanDataInServer(QDBusVariant data);
+    void saveRpmSpeedInServer(int rpm, int speed);
+    void saveHumTempInServer(int hum, int temp);
+    void saveBatteryLVInServer(int battery);
 
     int fetchRpmFromServer();
     int fetchTempFromServer();
     int fetchHumFromServer();
     int fetchBtrLvFromServer();
+    int fetchSpeedFromServer();
 
 };
 
