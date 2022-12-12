@@ -4,5 +4,7 @@
         <file>halloween.png</file>
         <file>neonback.png</file>
         <file>battery.png</file>
+        <file>humidity.jpg</file>
+        <file>temperature.jpg</file>
     </qresource>
 </RCC>

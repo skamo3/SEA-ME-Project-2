@@ -4,43 +4,41 @@
 
 
 QmlController::QmlController(QObject *parent)
-    : QObject{parent}, rpm(0), rpmTimer(std::make_shared<QTimer>()),
-      batteryTimer(std::make_shared<QTimer>()), tempHumTimer(std::make_shared<QTimer>())
+    : QObject{parent}, rpm(0), humidity(0), temperature(0),
+      battery(0), speed(0)
 {
     qDBusRegisterMetaType<struct Data>();
     dataManager = new local::DataManager("pi.chan", "/can/read",
                                          QDBusConnection::sessionBus(), this);
 
-    connect(rpmTimer.get(), SIGNAL(timeout()), this, SLOT(updateRpm()));
-    connect(batteryTimer.get(), SIGNAL(timeout()), this, SLOT(updateBattery()));
-    connect(tempHumTimer.get(), SIGNAL(timeout()), this, SLOT(updateTempHum()));
-
-    rpmTimer->setInterval(2000);
-    batteryTimer->setInterval(5000);
-    tempHumTimer->setInterval(10000);
-
-    rpmTimer->start();
-    batteryTimer->start();
-    tempHumTimer->start();
+    connect(dataManager, SIGNAL(broadRpmSpeedChanged()), this, SLOT(updateRpmSpeed()));
+    connect(dataManager, SIGNAL(broadHumTempChanged()), this, SLOT(updateTempHum()));
+    //example how to use connect with function address
+    connect(dataManager, &local::DataManager::broadBatteryChanged,
+            this, &QmlController::updateBattery);
 }
 
-void QmlController::updateRpm()
+void QmlController::updateRpmSpeed()
 {
     if (!QDBusConnection::sessionBus().isConnected())
     {
         qDebug() << "Bus connected error";
         return ;
     }
-    QDBusPendingReply<int> reply = dataManager->fetchRpmFromServer();
-    if (!reply.isError())
+    QDBusPendingReply<int> rpm = dataManager->fetchRpmFromServer();
+    QDBusPendingReply<int> speed = dataManager->fetchSpeedFromServer();
+    if (!rpm.isError() && !speed.isError())
     {
-        qDebug() << "Rpm data fetch success : " << reply.value();
-        setRpm(reply.value());
+        qDebug() << "Rpm data fetch success : " << rpm.value();
+        qDebug() << "Speed data fetch success : " << speed.value();
+        setRpm(rpm.value());
+        setSpeed(speed.value());
     }
     else
     {
         qDebug() << "reply is not valid";
-        qDebug() << reply.error();
+        qDebug() << rpm.error();
+        qDebug() << speed.error();
     }
 }
 

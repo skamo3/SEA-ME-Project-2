@@ -3,6 +3,7 @@
         <file>BackGround.qml</file>
         <file>DataArea.qml</file>
         <file>InstrumentCluster.qml</file>
-        <file>GaugeStyles.qml</file>
+        <file>RpmGaugeStyles.qml</file>
+        <file>SpeedGaugeStyles.qml</file>
     </qresource>
 </RCC>

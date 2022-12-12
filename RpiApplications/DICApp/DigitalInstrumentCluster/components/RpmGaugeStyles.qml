@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls.Styles 1.4
 
 CircularGaugeStyle {
-    labelStepSize: 500
+    labelStepSize: 3000
     minimumValueAngle: -130
     maximumValueAngle: 110
 

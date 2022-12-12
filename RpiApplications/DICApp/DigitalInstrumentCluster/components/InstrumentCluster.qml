@@ -24,15 +24,15 @@ Item {
 
         value: datacontroller.rpm // 스피드 값 넣기
         minimumValue: 0
-        maximumValue: 5000 // 최대값
+        maximumValue: 15000 // 최대값
 
-        style: GaugeStyles {
+        style: RpmGaugeStyles {
 
         }
 
         Behavior on value {
             NumberAnimation {
-                duration: 1000
+                duration: 3000
             }
         }
     }
@@ -44,14 +44,18 @@ Item {
         x:(parent.x + parent.width) / 1.75
         anchors.verticalCenter: parent.verticalCenter
 
-        value: datacontroller.rpm
+        value: datacontroller.speed
         minimumValue: 0
-        maximumValue: 300
+        maximumValue: 36
 
         Behavior on value {
             NumberAnimation {
                 duration: 1000
             }
+        }
+
+        style: SpeedGaugeStyles {
+
         }
     }
 
@@ -93,59 +97,57 @@ Item {
             }
     }
 
-    Gauge {
-        id: temperature
-        minimumValue: 0
-        maximumValue: 50
-        value: datacontroller.temperature
-        width: parent.width
-        height: parent.height * 0.2
-        x: ((parent.x + parent.width) / 2) - parent.width * 0.1
-        anchors {
-            bottom: parent.bottom
-            bottomMargin: parent.height * 0.05
-        }
+    Rectangle {
+        id: tempBox
+        width: height
+        height: parent.height*0.08
+        x: (parent.x + parent.width) / 2.5
+        y: (parent.y + parent.height)/1.35
 
-        style: GaugeStyle {
-            valueBar: Rectangle {
-                implicitWidth: 8
-                color: "#FF0000"
-            }
-        }
-
-        Behavior on value {
-            NumberAnimation {
-                duration: 4000
-            }
+        Image {
+            id: temp
+            width: height
+            source: "qrc:/temperature.jpg"
+                    }
+        Text {
+            id :temptextbox
+            width: parent.width/2
+            height: parent.height
+            x: (temp.x + temp.width) + (temp.x + temp.width) / 4
+            y: (temp.y + temp.height) / 4
+            text:datacontroller.temperature + "℃"
+            font.pointSize: 12
+            color: "#F17758"
         }
     }
 
-    Gauge {
-        id: humidity
-        minimumValue: 0
-        maximumValue: 100
-        value: datacontroller.humidity
-        width: parent.width
-        height: parent.height * 0.2
-        x: ((parent.x + parent.width) / 2)
-        anchors {
-            bottom: parent.bottom
-            bottomMargin: parent.height * 0.05
-        }
+    Rectangle {
+        id: humBox
+        height: parent.height*0.08
+        x: (parent.x + parent.width) / 1.8
+        y: (parent.y + parent.height)/1.35
 
-        style: GaugeStyle {
-            valueBar: Rectangle {
-                implicitWidth: 8
-                color: "#0000FF"
-            }
-        }
+        Image {
+            id: hum
+            width: height
+            source: "qrc:/humidity.jpg"
+                    }
+        Text {
+            id :humtextbox
+            width: parent.width/2
+            height: parent.height
+            x: (hum.x + hum.width) + (hum.x + hum.width) / 4
+            y: (hum.y + hum.height) / 4
+            text:+datacontroller.humidity + "%"
+            font.pointSize: 12
 
-        Behavior on value {
-            NumberAnimation {
-                duration: 4000
-            }
+            color: "#F17758"
         }
     }
+
+
+
+
 
 }
 
